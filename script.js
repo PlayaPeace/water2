@@ -113,6 +113,9 @@ for (let elem = 0; elem < inputs.length; elem++){
             if (this.hasAttribute('data-U-input')) {
                 uInput = this.value;
                 allValue('[data-U-input]', uInput);
+                // let text = "Число потребителей: U = " + uInput + " человек";
+                // const element = document.getElementById('u-input-text');
+                // if (element) element.textContent = text;
             }
 
             if (numFloors) {
@@ -233,7 +236,20 @@ for (let elem = 0; elem < inputs.length; elem++){
                 NT3 = parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numDevicesT3) * parseFloat(numApartments) * parseFloat(numBuildings);
                 NT3 = Math.ceil(NT3)
                 let NT3Calculate = numSections + " * " + numFloors + " * " + numDevicesT3 + " * " + numApartments + " * " + numBuildings + " = " + NT3;
-                allValue('[NT3-calculate]', NT3Calculate + " шт")}
+                allValue('[NT3-calculate]', NT3Calculate + " шт")
+            }
+
+            if (uInput) {
+                let text = "Число потребителей: U = " + uInput + " человек";
+                const element = document.getElementById('u-input-text');
+                if (element) element.textContent = text;
+            }
+
+            if (nb0Nb1Input && numDevicesT3) {
+                let text = "Число водозаборных точек: N<sup>В0</sup> = " + nb0Nb1Input + " шт., N<sup>Т3</sup> = " + numDevicesT3 + " шт., N<sup>В1</sup> = " + nb0Nb1Input + " шт.";
+                const element = document.getElementById('nb0nb1nt3-input-text');
+                if (element) element.innerHTML = text;
+            }
 
             if (U && Nb0) {
                 Psb0 = (11.6*U)/(3600*Nb0*0.3);
