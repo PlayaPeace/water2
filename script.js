@@ -321,6 +321,7 @@ for (let elem = 0; elem < inputs.length; elem++){
 
             if (qdb0InputCal && qb0) {
                 let sumQDB0 = qdb0InputCal + qb0;
+                sumQDB0 = Number(sumQDB0.toFixed(4));
                 // let text = "" + qdb0InputCal + " + " + qb0 + " = " + sumQDB0 ;
                 // let element = document.getElementById('u-input-text');
                 // if (element) element.textContent = text;
@@ -333,6 +334,7 @@ for (let elem = 0; elem < inputs.length; elem++){
 
             if (qdT3InputCal && qT3) {
                 let sumQDT3 = qdT3InputCal + qT3;
+                sumQDT3 = Number(sumQDT3.toFixed(4));
                 let formulaText = `q^{\\text{T3}}_{сут} = \\sum q^{\\text{i}}_{T3} = ${qdT3InputCal} + ${qT3} = ${sumQDT3} \\frac{\\text{м³}}{\\text{сут}}`;
                 hiddenFormulaCont = 'hiddenFormulaSumQDT3';
                 formulaCont='formulaSumQDT3';
@@ -342,6 +344,7 @@ for (let elem = 0; elem < inputs.length; elem++){
 
             if (qdb1InputCal && qb1) {
                 let sumQDB1 = qdb1InputCal + qb1;
+                sumQDB1 = Number(sumQDB1.toFixed(4));
                 let formulaText = `q^{\\text{B1}}_{сут} = \\sum q^{\\text{i}}_{B1} = ${qdb1InputCal} + ${qb1} = ${sumQDB1} \\frac{\\text{м³}}{\\text{сут}}`;
                 hiddenFormulaCont = 'hiddenFormulaSumQDB1';
                 formulaCont='formulaSumQDB1';
@@ -351,6 +354,7 @@ for (let elem = 0; elem < inputs.length; elem++){
 
             if (qB0mh && qmhb0Input) {
                 let sumQMhB0 = qB0mh + qmhb0Input;
+                sumQMhB0 = Number(sumQMhB0.toFixed(4));
                 let formulaText = `q^{\\text{B0}}_{ср.час} = \\sum q^{\\text{i}}_{B0} = ${qB0mh} + ${qmhb0Input} = ${sumQMhB0} \\frac{\\text{м³}}{\\text{час}}`;
                 hiddenFormulaCont = 'hiddenFormulaSumQMhB0';
                 formulaCont='formulaSumQMhB0';
@@ -360,6 +364,7 @@ for (let elem = 0; elem < inputs.length; elem++){
 
             if (qT3mh && qmhT3Input) {
                 let sumQMhT3 = qT3mh + qmhT3Input;
+                sumQMhT3 = Number(sumQMhT3.toFixed(4));
                 let formulaText = `q^{\\text{T3}}_{ср.час} = \\sum q^{\\text{i}}_{T3} = ${qT3mh} + ${qmhT3Input} = ${sumQMhT3} \\frac{\\text{м³}}{\\text{час}}`;
                 hiddenFormulaCont = 'hiddenFormulaSumQMhT3';
                 formulaCont='formulaSumQMhT3';
@@ -369,6 +374,7 @@ for (let elem = 0; elem < inputs.length; elem++){
 
             if (qB1mh && qmhb1Input) {
                 let sumQMhB1 = qB1mh + qmhb1Input;
+                sumQMhB1 = Number(sumQMhB1.toFixed(4));
                 let formulaText = `q^{\\text{B1}}_{ср.час} = \\sum q^{\\text{i}}_{B1} = ${qB1mh} + ${qmhb1Input} = ${sumQMhB1} \\frac{\\text{м³}}{\\text{час}}`;
                 hiddenFormulaCont = 'hiddenFormulaSumQMhB1';
                 formulaCont='formulaSumQMhB1';
