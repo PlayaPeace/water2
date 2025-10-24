@@ -16,6 +16,7 @@ let Hnijt;
 let U;
 let Nb0;
 let Nb1;
+let NT3;
 let qb0;
 let qb1;
 let Psb0;
@@ -84,7 +85,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 allValue('[data-num-apartments]', numApartments);
             }
 
-            if (this.hasAttribute('data-devices-T3')) {
+            if (this.hasAttribute('data-num-devices-T3')) {
                 numDevicesT3 = this.value;
                 allValue('[data-num-devices-T3]', numDevicesT3);
             }
@@ -188,6 +189,12 @@ for (let elem = 0; elem < inputs.length; elem++){
                 allValue('[Nb0-calculate]', Nb0Calculate + " шт")
                 allValue('[Nb1-calculate]', Nb1Calculate + " шт")
             }
+
+            if (numSections && numFloors && numDevicesT3 && numApartments && numBuildings) {
+                NT3 = parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numDevicesT3) * parseFloat(numApartments) * parseFloat(numBuildings);
+                NT3 = Math.ceil(NT3)
+                let NT3Calculate = numSections + " * " + numFloors + " * " + numDevicesT3 + " * " + numApartments + " * " + numBuildings + " = " + NT3;
+                allValue('[NT3-calculate]', NT3Calculate + " шт")}
 
             if (U && Nb0) {
                 Psb0 = (11.6*U)/(3600*Nb0*0.3);
