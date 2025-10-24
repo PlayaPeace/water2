@@ -19,6 +19,7 @@ let Nb1;
 let NT3;
 let qb0;
 let qb1;
+let qT3;
 let Psb0;
 let Psb1;
 let NP1;
@@ -127,10 +128,13 @@ for (let elem = 0; elem < inputs.length; elem++){
                 qb0 = Number(qb0.toFixed(2)); //to fixed
                 qb1 = 110*U/1000;
                 qb1 = Number(qb1.toFixed(2)); //to fixed
-                let qb0Calculate = "180 * " + U + " /1000" + " = " + qb0;
-                allValue('[qb0-calculate]', qb0Calculate);
-                let qb1Calculate = "110 * " + U + " /1000" + " = " + qb1;
-                allValue('[qb1-calculate]', qb1Calculate);
+                qT3 = 70*U/1000;
+                qT3 = Number(qT3.toFixed(2)); //to fixed
+
+                // let qb0Calculate = "180 * " + U + " /1000" + " = " + qb0;
+                // allValue('[qb0-calculate]', qb0Calculate);
+                // let qb1Calculate = "110 * " + U + " /1000" + " = " + qb1;
+                // allValue('[qb1-calculate]', qb1Calculate);
             }
 
             if (U && qb0) {
@@ -154,6 +158,15 @@ for (let elem = 0; elem < inputs.length; elem++){
                 const Qb0dTableElement = document.getElementById('Qb0d-table');
                 if (Qb0dTableElement) Qb0dTableElement.textContent = qb0;
                 allValue('Qb0d-table', qb0);
+            }
+
+            if(U && qT3) {
+                let formulaQT3Text = `q^{\\text{b1}}_{\\text{сут}} = \\frac{q^{\\text{T3}}_{\\text{сут}} * U}{1000} = \\frac{70 * ${U}}{1000} = ${qT3} \\frac{\\text{м³}}{\\text{сут}}`;
+                hiddenFormulaCont = 'hiddenFormulaQT3';
+                formulaCont='formulaQT3';
+                canvasCont='canvasQT3';
+                calculate(formulaQT3Text, hiddenFormulaCont,formulaCont,canvasCont);
+
             }
 
             if(U && qb1) {
@@ -419,6 +432,12 @@ hiddenFormulaCont = 'hiddenFormulaQdB0';
 formulaCont='formulaQdB0';
 canvasCont='canvasQdB0';
 calculate(formulaQdB0Text, hiddenFormulaCont,formulaCont,canvasCont);
+
+let formulaQdT3Text = `q_{\\text{сут}}^{\\text{T3}} = 70 \\frac{\\text{л}}{\\text{сут}}`;
+hiddenFormulaCont = 'hiddenFormulaQdT3';
+formulaCont='formulaQdT3';
+canvasCont='canvasQdT3';
+calculate(formulaQdT3Text, hiddenFormulaCont,formulaCont,canvasCont);
 
 let formulaQdB1Text = `q_{\\text{сут}}^{\\text{B1}} = 110 \\frac{\\text{л}}{\\text{сут}}`;
 hiddenFormulaCont = 'hiddenFormulaQdB1';
