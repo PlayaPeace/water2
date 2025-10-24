@@ -7,7 +7,10 @@ let floorHeight;
 let population;
 let numDevices;
 let numApartments;
+
 let typeOfBuilding;
+let nb0Nb1Input;
+let uInput;
 let numDevicesT3;
 
 let Htr;
@@ -92,14 +95,24 @@ for (let elem = 0; elem < inputs.length; elem++){
                 allValue('[data-num-apartments]', numApartments);
             }
 
+            if (this.hasAttribute('data-type-building')) {
+                typeOfBuilding = "(" + this.value + ")";
+                allValue('[data-type-building]', typeOfBuilding);
+            }
+
+            if (this.hasAttribute('data-Nb0Nb1-input')) {
+                nb0Nb1Input = this.value ;
+                allValue('[data-Nb0Nb1-input]', nb0Nb1Input);
+            }
+
             if (this.hasAttribute('data-num-devices-T3')) {
                 numDevicesT3 = this.value;
                 allValue('[data-num-devices-T3]', numDevicesT3);
             }
 
-            if (this.hasAttribute('data-type-building')) {
-                typeOfBuilding = "(" + this.value + ")";
-                allValue('[data-type-building]', typeOfBuilding);
+            if (this.hasAttribute('data-U-input')) {
+                uInput = this.value;
+                allValue('[data-U-input]', uInput);
             }
 
             if (numFloors) {
