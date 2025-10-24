@@ -49,6 +49,10 @@ let ANP6;
 let Htr;
 let Hnijt;
 
+let qB0mh;
+let qT3mh;
+let qB1mh;
+
 let U;
 let Nb0;
 let Nb1;
@@ -214,7 +218,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasQb0';
                 calculate(formulaQb0Text, hiddenFormulaCont,formulaCont,canvasCont);
 
-                let qB0mh = Number((qb0/24).toFixed(2));
+                qB0mh = Number((qb0/24).toFixed(2));
                 let formulaQB0mhText = `q^{\\text{B0}}_{\\text{ср час}} = \\frac{${qb0}}{24} = ${qB0mh} \\frac{\\text{м³}}{\\text{час}}`;
                 hiddenFormulaCont = 'hiddenFormulaQB0mh';
                 formulaCont='formulaQB0mh';
@@ -237,7 +241,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasQT3';
                 calculate(formulaQT3Text, hiddenFormulaCont,formulaCont,canvasCont);
 
-                let qT3mh = Number((qT3/24).toFixed(2));
+                qT3mh = Number((qT3/24).toFixed(2));
                 let formulaQT3mhText = `q^{\\text{B0}}_{\\text{ср час}} = \\frac{${qT3}}{24} = ${qT3mh} \\frac{\\text{м³}}{\\text{час}}`;
                 hiddenFormulaCont = 'hiddenFormulaQT3mh';
                 formulaCont='formulaQT3mh';
@@ -253,7 +257,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasQb1';
                 calculate(formulaQb1Text, hiddenFormulaCont,formulaCont,canvasCont);
 
-                let qB1mh = Number((qb1/24).toFixed(2));
+                qB1mh = Number((qb1/24).toFixed(2));
                 let formulaQB1mhText = `q^{\\text{B1}}_{\\text{ср час}} = \\frac{${qb1}}{24} = ${qB1mh} \\frac{\\text{м³}}{\\text{час}}`;
                 hiddenFormulaCont = 'hiddenFormulaQB1mh';
                 formulaCont='formulaQB1mh';
@@ -324,6 +328,33 @@ for (let elem = 0; elem < inputs.length; elem++){
                 hiddenFormulaCont = 'hiddenFormulaSumQDB1';
                 formulaCont='formulaSumQDB1';
                 canvasCont='canvasSumQDB1';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (qB0mh && qmhb0Input) {
+                let sumQMhB0 = qB0mh + qmhb0Input;
+                let formulaText = `q^{\\text{B0}}_{ср.час} = \\sum q^{\\text{i}}_{B0} = ${qB0mh} + ${qmhb0Input} = ${sumQMhB0} \\frac{\\text{м³}}{\\text{час}}`;
+                hiddenFormulaCont = 'hiddenFormulaSumQMhB0';
+                formulaCont='formulaSumQMhB0';
+                canvasCont='canvasSumQMhB0';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (qT3mh && qmhT3Input) {
+                let sumQMhT3 = qT3mh + qmhT3Input;
+                let formulaText = `q^{\\text{T3}}_{ср.час} = \\sum q^{\\text{i}}_{T3} = ${qT3mh} + ${qmhT3Input} = ${sumQMhT3} \\frac{\\text{м³}}{\\text{час}}`;
+                hiddenFormulaCont = 'hiddenFormulaSumQMhT3';
+                formulaCont='formulaSumQMhT3';
+                canvasCont='canvasSumQMhT3';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (qB1mh && qmhb1Input) {
+                let sumQMhB1 = qB1mh + qmhb1Input;
+                let formulaText = `q^{\\text{B1}}_{ср.час} = \\sum q^{\\text{i}}_{B1} = ${qB1mh} + ${qmhb1Input} = ${sumQMhB1} \\frac{\\text{м³}}{\\text{час}}`;
+                hiddenFormulaCont = 'hiddenFormulaSumQMhB1';
+                formulaCont='formulaSumQMhB1';
+                canvasCont='canvasSumQMhB1';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
