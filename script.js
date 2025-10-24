@@ -13,6 +13,14 @@ let nb0Nb1Input;
 let uInput;
 let numDevicesT3;
 
+let qdb0Input;
+let qdT3Input;
+let qdb1Input;
+
+let qdb0InputCal;
+let qdT3InputCal;
+let qdb1InputCal;
+
 let Htr;
 let Hnijt;
 
@@ -116,6 +124,16 @@ for (let elem = 0; elem < inputs.length; elem++){
                 // let text = "Число потребителей: U = " + uInput + " человек";
                 // const element = document.getElementById('u-input-text');
                 // if (element) element.textContent = text;
+            }
+
+            if (this.hasAttribute('data-qdb0-input')) {
+                qdb0Input = this.value;
+                allValue('[data-qdb0-input]', qdb0Input);
+            }
+
+            if (this.hasAttribute('data-qdT3-input')) {
+                qdT3Input = this.value;
+                allValue('[data-qdT3-input]', qdT3Input);
             }
 
             if (numFloors) {
@@ -241,7 +259,11 @@ for (let elem = 0; elem < inputs.length; elem++){
 
             if (uInput) {
                 let text = "Число потребителей: U = " + uInput + " человек";
-                const element = document.getElementById('u-input-text');
+                let element = document.getElementById('u-input-text');
+                if (element) element.textContent = text;
+
+                text = "U = " + uInput;
+                element = document.getElementById('u-value');
                 if (element) element.textContent = text;
             }
 
@@ -249,6 +271,66 @@ for (let elem = 0; elem < inputs.length; elem++){
                 let text = "Число водозаборных точек: N<sup>В0</sup> = " + nb0Nb1Input + " шт., N<sup>Т3</sup> = " + numDevicesT3 + " шт., N<sup>В1</sup> = " + nb0Nb1Input + " шт.";
                 const element = document.getElementById('nb0nb1nt3-input-text');
                 if (element) element.innerHTML = text;
+            }
+
+            if (qdb0Input) {
+                let formulaText = `q_{\\text{сут}}^{\\text{B0}} =  ${qdb0Input}\\frac{\\text{л}}{\\text{сут}} `;
+                hiddenFormulaCont = 'hiddenFormulaQdB0Input';
+                formulaCont='formulaQdB0Input';
+                canvasCont='canvasQdB0Input';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (qdT3Input) {
+                let formulaText = `q_{\\text{сут}}^{\\text{T3}} =  ${qdT3Input}\\frac{\\text{л}}{\\text{сут}} `;
+                hiddenFormulaCont = 'hiddenFormulaQdT3Input';
+                formulaCont='formulaQdT3Input';
+                canvasCont='canvasQdT3Input';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (qdb0Input && qdT3Input) {
+                qdb1Input = qdb0Input - qdT3Input;
+                // qdb1Input = Number(qdb1Input.toFixed(3));
+
+                let formulaText = `q_{\\text{сут}}^{\\text{B1}} = ${qdb0Input} - ${qdT3Input} =  ${qdb1Input}\\frac{\\text{л}}{\\text{сут}} `;
+                hiddenFormulaCont = 'hiddenFormulaQdB1Input';
+                formulaCont='formulaQdB1Input';
+                canvasCont='canvasQdB1Input';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (qdb0Input && uInput) {
+                qdb0InputCal = qdb0Input * uInput /1000;
+                qdb0InputCal = Number(qdb0InputCal.toFixed(3));
+
+                let formulaText = `q_{\\text{сут}}^{\\text{B0}} = \\frac{${qdb0Input} * ${uInput}}{1000} = ${qdb0InputCal}\\frac{\\text{м³}}{\\text{сут}} `;
+                hiddenFormulaCont = 'hiddenFormulaQdB0InputCalculate';
+                formulaCont='formulaQdB0InputCalculate';
+                canvasCont='canvasQdB0InputCalculate';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (qdT3Input && uInput) {
+                qdT3InputCal = qdT3Input * uInput /1000;
+                qdT3InputCal = Number(qdT3InputCal.toFixed(3));
+
+                let formulaText = `q_{\\text{сут}}^{\\text{T3}} = \\frac{${qdT3Input} * ${uInput}}{1000} = ${qdT3InputCal}\\frac{\\text{м³}}{\\text{сут}} `;
+                hiddenFormulaCont = 'hiddenFormulaQdT3InputCalculate';
+                formulaCont='formulaQdT3InputCalculate';
+                canvasCont='canvasQdT3InputCalculate';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (qdb1Input && uInput) {
+                qdb1InputCal = qdb1Input * uInput /1000;
+                qdb1InputCal = Number(qdb1InputCal.toFixed(3));
+
+                let formulaText = `q_{\\text{сут}}^{\\text{B1}} = \\frac{${qdb1Input} * ${uInput}}{1000} = ${qdb1InputCal}\\frac{\\text{м³}}{\\text{сут}} `;
+                hiddenFormulaCont = 'hiddenFormulaQdB1InputCalculate';
+                formulaCont='formulaQdB1InputCalculate';
+                canvasCont='canvasQdB1InputCalculate';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
             if (U && Nb0) {
