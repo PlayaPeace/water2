@@ -16,14 +16,26 @@ let numDevicesT3;
 let qdb0Input;
 let qdT3Input;
 let qdb1Input;
-
 let qdb0InputCal;
 let qdT3InputCal;
 let qdb1InputCal;
-
 let qmhb0Input;
 let qmhT3Input;
 let qmhb1Input;
+
+let qDmaxB0Input;
+let qDmaxT3Input;
+let qDmaxB1Input;
+
+let pSB0Input;
+let pST3Input;
+let pSB1Input;
+let ANP1;
+let ANP2;
+let ANP3;
+let qSB0Input;
+let qST3Input;
+let qSB1Input;
 
 let Htr;
 let Hnijt;
@@ -41,16 +53,12 @@ let Psb1;
 let NP1;
 let NP1T3;
 let NP2;
-let a1;
-let a2;
 let qb0s;
 let qT3s
 let qb1s;
 let NP3;
 let NP2T3;
 let NP4;
-let a3;
-let a4;
 let Phb0;
 let PhT3;
 let Phb1;
@@ -70,7 +78,6 @@ let inputs = document.querySelectorAll('input');
 for (let elem = 0; elem < inputs.length; elem++){
     inputs[elem].addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
-            console.log('Enter pressed on input:', this);
 
             if (this.hasAttribute('data-num-buildings')) {
                 numBuildings = this.value;
@@ -138,6 +145,16 @@ for (let elem = 0; elem < inputs.length; elem++){
             if (this.hasAttribute('data-qdT3-input')) {
                 qdT3Input = this.value;
                 allValue('[data-qdT3-input]', qdT3Input);
+            }
+
+            if (this.hasAttribute('data-q-dmax-b0-input')) {
+                qDmaxB0Input = this.value;
+                allValue('[data-q-dmax-b0-input]', qDmaxB0Input);
+            }
+
+            if (this.hasAttribute('data-q-dmax-T3-input')) {
+                qDmaxT3Input = this.value;
+                allValue('[data-q-dmax-T3-input]', qDmaxT3Input);
             }
 
             if (numFloors) {
@@ -366,6 +383,100 @@ for (let elem = 0; elem < inputs.length; elem++){
                 hiddenFormulaCont = 'hiddenFormulaQmhB1Input';
                 formulaCont='formulaQmhB1Input';
                 canvasCont='canvasQmhB1Input';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (qDmaxB0Input && qDmaxT3Input) {
+                qDmaxB1Input = qDmaxB0Input - qDmaxT3Input;
+            }
+
+            if (nb0Nb1Input && uInput && qDmaxB0Input) {
+                pSB0Input = qDmaxB0Input * uInput /3600 /nb0Nb1Input /0.3;
+                pSB0Input = Number(pSB0Input.toFixed(4));
+
+                let formulaText = `\\text{1)} P_{\\text{сек}}^{\\text{BO}} = \\frac{${qDmaxB0Input} * ${uInput}}{3600*${nb0Nb1Input}*0.3} = ${pSB0Input}`;
+                hiddenFormulaCont = 'hiddenFormulaPsB0Inp';
+                formulaCont='formulaPsB0Inp';
+                canvasCont='canvasPsB0Inp';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (nb0Nb1Input && pSB0Input) {
+                ANP1 = Number((nb0Nb1Input * pSB0Input).toFixed(3));
+                let a = findAlphaByNP(ANP1);
+                a = Number(a.toFixed(3));
+
+                let formulaText = `\\text{α(N}\\text{P}_с\\text{)} = α(${nb0Nb1Input} * ${pSB0Input}) = α(${ANP1}) = ${a}`;
+                hiddenFormulaCont = 'hiddenFormulaANP1';
+                formulaCont='formulaANP1';
+                canvasCont='canvasANP1';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                qSB0Input = Number((5*a*0.3).toFixed(4));
+                formulaText = `q_{\\text{сек}}^{\\text{B0}} = 5 * ${a} * 0.3 = ${qSB0Input} \\frac{\\text{л}}{\\text{с}}`;
+                hiddenFormulaCont = 'hiddenFormulaQsB0Inp';
+                formulaCont='formulaQsB0Inp';
+                canvasCont='canvasQsB0Inp';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (numDevicesT3 && uInput && qDmaxT3Input) {
+                pST3Input = qDmaxT3Input * uInput /3600 /numDevicesT3 /0.2;
+                pST3Input = Number(pST3Input.toFixed(4));
+
+                let formulaText = `\\text{2)} P_{\\text{сек}}^{\\text{T3}} = \\frac{${qDmaxT3Input} * ${uInput}}{3600*${numDevicesT3}*0.2} = ${pST3Input}`;
+                hiddenFormulaCont = 'hiddenFormulaPsT3Inp';
+                formulaCont='formulaPsT3Inp';
+                canvasCont='canvasPsT3Inp';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (numDevicesT3 && pST3Input) {
+                ANP2 = Number((numDevicesT3 * pST3Input).toFixed(3));
+                let a = findAlphaByNP(ANP2);
+                a = Number(a.toFixed(3));
+
+                let formulaText = `\\text{α(N}\\text{P}_с\\text{)} = α(${numDevicesT3} * ${pST3Input}) = α(${ANP2}) = ${a}`;
+                hiddenFormulaCont = 'hiddenFormulaANP2';
+                formulaCont='formulaANP2';
+                canvasCont='canvasANP2';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                qST3Input = Number((5*a*0.2).toFixed(4));
+                formulaText = `q_{\\text{сек}}^{\\text{T3}} = 5 * ${a} * 0.2 = ${qST3Input} \\frac{\\text{л}}{\\text{с}}`;
+                hiddenFormulaCont = 'hiddenFormulaQsT3Inp';
+                formulaCont='formulaQsT3Inp';
+                canvasCont='canvasQsT3Inp';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (nb0Nb1Input && uInput && qDmaxB1Input) {
+                pSB1Input = qDmaxB1Input * uInput /3600 /nb0Nb1Input /0.2;
+                pSB1Input = Number(pSB1Input.toFixed(4));
+
+                let formulaText = `\\text{3)} P_{\\text{сек}}^{\\text{B1}} = \\frac{${qDmaxB1Input} * ${uInput}}{3600*${nb0Nb1Input}*0.2} = ${pSB1Input}`;
+                hiddenFormulaCont = 'hiddenFormulaPsB1Inp';
+                formulaCont='formulaPsB1Inp';
+                canvasCont='canvasPsB1Inp';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (nb0Nb1Input && pSB1Input) {
+                ANP3 = Number((nb0Nb1Input * pSB1Input).toFixed(3));
+                let a = findAlphaByNP(ANP3);
+                a = Number(a.toFixed(3));
+
+                let formulaText = `\\text{α(N}\\text{P}_с\\text{)} = α(${nb0Nb1Input} * ${pSB1Input}) = α(${ANP3}) = ${a}`;
+                hiddenFormulaCont = 'hiddenFormulaANP3';
+                formulaCont='formulaANP3';
+                canvasCont='canvasANP3';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                qSB1Input = Number((5*a*0.2).toFixed(4));
+                formulaText = `q_{\\text{сек}}^{\\text{T3}} = 5 * ${a} * 0.2 = ${qSB1Input} \\frac{\\text{л}}{\\text{с}}`;
+                hiddenFormulaCont = 'hiddenFormulaQsB1Inp';
+                formulaCont='formulaQsB1Inp';
+                canvasCont='canvasQsB1Inp';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
