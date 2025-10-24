@@ -171,6 +171,13 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasQT3';
                 calculate(formulaQT3Text, hiddenFormulaCont,formulaCont,canvasCont);
 
+                let qT3mh = Number((qT3/24).toFixed(2));
+                let formulaQT3mhText = `q^{\\text{B0}}_{\\text{ср час}} = \\frac{${qT3}}{24} = ${qT3mh} \\frac{\\text{м³}}{\\text{час}}`;
+                hiddenFormulaCont = 'hiddenFormulaQT3mh';
+                formulaCont='formulaQT3mh';
+                canvasCont='canvasQT3mh';
+                calculate(formulaQT3mhText, hiddenFormulaCont,formulaCont,canvasCont);
+
             }
 
             if(U && qb1) {
