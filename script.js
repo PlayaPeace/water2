@@ -45,6 +45,18 @@ let qHB1Input;
 let ANP4;
 let ANP5;
 let ANP6;
+let pSB0;
+let pST3;
+let pSB1;
+let ANP7;
+let ANP8;
+let ANP9;
+let qSB0;
+let qST3;
+let qSB1;
+let ANP10;
+let ANP11;
+let ANP12;
 
 let Htr;
 let Hnijt;
@@ -934,9 +946,138 @@ for (let elem = 0; elem < inputs.length; elem++){
                 const NP4Element = document.getElementById('NP4-result');
                 if (NP4Element) NP4Element.textContent = NP4;
             }
+
+            if (nb0Nb1Input && Nb0 && Psb0 && pSB0Input) {
+                let q0sB0 = (Nb0*Psb0*0.3 + nb0Nb1Input*pSB0Input*0.3)/(Nb0*Psb0 + nb0Nb1Input*pSB0Input);
+                q0sB0 = Number(q0sB0.toFixed(2));
+                let formulaText = `q_0^{\\text{B0}} = \\frac{${Nb0}*${Psb0}*0.3 + ${nb0Nb1Input}*${pSB0Input}*0.3}{${Nb0}*${Psb0} + ${nb0Nb1Input}*${pSB0Input}} = ${q0sB0}`;
+                hiddenFormulaCont = 'hiddenFormulaQsB0Sum';
+                formulaCont='formulaQsB0Sum';
+                canvasCont='canvasQsB0Sum';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                pSB0 = (Nb0*Psb0 + nb0Nb1Input*pSB0Input)/(Nb0 + nb0Nb1Input);
+                pSB0 = Number(pSB0.toFixed(4));
+                formulaText = `P_{\\text{сек}}^{\\text{B0}} = \\frac{${Nb0}*${Psb0} + ${nb0Nb1Input}*${pSB0Input}}{${Nb0} + ${nb0Nb1Input}} = ${pSB0}`;
+                hiddenFormulaCont = 'hiddenFormulaPsB0Sum';
+                formulaCont='formulaPsB0Sum';
+                canvasCont='canvasPsB0Sum';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (pSB0 && Nb0 && nb0Nb1Input) {
+                ANP7 = Number(((Nb0+nb0Nb1Input) * pSB0).toFixed(3));
+                let sumN = Number(Nb0)+Number(nb0Nb1Input);
+                let a = findAlphaByNP(ANP7);
+                a = Number(a.toFixed(3));
+                let formulaText = `\\text{α(N}\\text{P}_с\\text{)} = α(${sumN} * ${pSB0}) = α(${ANP7}) = ${a}`;
+                hiddenFormulaCont = 'hiddenFormulaANP7';
+                formulaCont='formulaANP7';
+                canvasCont='canvasANP7';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                qSB0 = Number((5*a*0.3).toFixed(4));
+                formulaText = `q_{\\text{max сек}}^{\\text{B0}} = 5 * ${a} * 0.3 = ${qSB0} \\frac{\\text{л}}{\\text{с}}`;
+                hiddenFormulaCont = 'hiddenFormulaQMaxSB0Sum';
+                formulaCont='formulaQMaxSB0Sum';
+                canvasCont='canvasQMaxSB0Sum';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (numDevicesT3 && NT3 && PsT3 && pST3Input) {
+                let q0sT3 = (NT3*PsT3*0.2 + numDevicesT3*pST3Input*0.2)/(NT3*PsT3 + numDevicesT3*pST3Input);
+                q0sT3 = Number(q0sT3.toFixed(2));
+                let formulaText = `q_0^{\\text{T3}} = \\frac{${NT3}*${PsT3}*0.2 + ${numDevicesT3}*${pST3Input}*0.2}{${NT3}*${PsT3} + ${numDevicesT3}*${pST3Input}} = ${q0sT3}`;
+                hiddenFormulaCont = 'hiddenFormulaQsT3Sum';
+                formulaCont='formulaQsT3Sum';
+                canvasCont='canvasQsT3Sum';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                pST3 = (NT3*PsT3 + numDevicesT3*pST3Input)/(NT3 + numDevicesT3);
+                pST3 = Number(pST3.toFixed(4));
+                formulaText = `P_{\\text{сек}}^{\\text{T3}} = \\frac{${NT3}*${PsT3} + ${numDevicesT3}*${pST3Input}}{${NT3} + ${numDevicesT3}} = ${pST3}`;
+                hiddenFormulaCont = 'hiddenFormulaPsT3Sum';
+                formulaCont='formulaPsT3Sum';
+                canvasCont='canvasPsT3Sum';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (pST3 && NT3 && numDevicesT3) {
+                ANP8 = Number(((Nb0+numDevicesT3) * pST3).toFixed(3));
+                let sumN = Number(NT3)+Number(numDevicesT3);
+                let a = findAlphaByNP(ANP8);
+                a = Number(a.toFixed(3));
+                let formulaText = `\\text{α(N}\\text{P}_с\\text{)} = α(${sumN} * ${pST3}) = α(${ANP8}) = ${a}`;
+                hiddenFormulaCont = 'hiddenFormulaANP8';
+                formulaCont='formulaANP8';
+                canvasCont='canvasANP8';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                qST3 = Number((5*a*0.2).toFixed(4));
+                formulaText = `q_{\\text{max сек}}^{\\text{T3}} = 5 * ${a} * 0.2 = ${qSB0} \\frac{\\text{л}}{\\text{с}}`;
+                hiddenFormulaCont = 'hiddenFormulaQMaxST3Sum';
+                formulaCont='formulaQMaxST3Sum';
+                canvasCont='canvasQMaxST3Sum';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (nb0Nb1Input && Nb1 && Psb1 && pSB1Input) {
+                let q0sB1 = (Nb1*Psb1*0.2 + nb0Nb1Input*pSB1Input*0.2)/(Nb1*Psb1 + nb0Nb1Input*pSB1Input);
+                q0sB1 = Number(q0sB1.toFixed(2));
+                let formulaText = `q_0^{\\text{B1}} = \\frac{${Nb1}*${Psb1}*0.2 + ${nb0Nb1Input}*${pSB1Input}*0.2}{${Nb1}*${Psb1} + ${nb0Nb1Input}*${pSB1Input}} = ${q0sB1}`;
+                hiddenFormulaCont = 'hiddenFormulaQsB1Sum';
+                formulaCont='formulaQsB1Sum';
+                canvasCont='canvasQsB1Sum';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                pSB1 = (Nb1*Psb1 + nb0Nb1Input*pSB1Input)/(Nb1 + nb0Nb1Input);
+                pSB1 = Number(pSB1.toFixed(4));
+                formulaText = `P_{\\text{сек}}^{\\text{B1}} = \\frac{${Nb1}*${Psb1} + ${nb0Nb1Input}*${pSB1Input}}{${Nb1} + ${nb0Nb1Input}} = ${pSB1}`;
+                hiddenFormulaCont = 'hiddenFormulaPsB1Sum';
+                formulaCont='formulaPsB1Sum';
+                canvasCont='canvasPsB1Sum';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (pSB1 && Nb1 && nb0Nb1Input) {
+                ANP9 = Number(((Nb1+nb0Nb1Input) * pSB1).toFixed(3));
+                let sumN = Number(Nb1)+Number(nb0Nb1Input);
+                let a = findAlphaByNP(ANP9);
+                a = Number(a.toFixed(3));
+                let formulaText = `\\text{α(N}\\text{P}_с\\text{)} = α(${sumN} * ${pSB1}) = α(${ANP9}) = ${a}`;
+                hiddenFormulaCont = 'hiddenFormulaANP9';
+                formulaCont='formulaANP9';
+                canvasCont='canvasANP9';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                qSB1 = Number((5*a*0.2).toFixed(4));
+                formulaText = `q_{\\text{max сек}}^{\\text{B1}} = 5 * ${a} * 0.2 = ${qSB1} \\frac{\\text{л}}{\\text{с}}`;
+                hiddenFormulaCont = 'hiddenFormulaQMaxSB1Sum';
+                formulaCont='formulaQMaxSB1Sum';
+                canvasCont='canvasQMaxSB1Sum';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
         }
     });
 }
+
+let formulaQ0hText = `q_0 = \\frac{\\sum N_i P_{\\text{hr}} q_{\\text{0i,hrj}}}{\\sum N_i P_{\\text{hrj}}} = \\frac{q_{\\text{0,hr,i}}*N1*P1 + q{\\text{0,hr,i}}*N2*P2}{N1*P1 + N2*P2} \\text{(3.13)}`;
+hiddenFormulaCont = 'hiddenFormulaQ0h';
+formulaCont='formulaSumQ0h';
+canvasCont='canvasSumQ0h';
+calculate(formulaQ0hText, hiddenFormulaCont,formulaCont,canvasCont);
+
+let formulaPText = `P = \\frac{P1*N1 + P2*N2}{N1+N2} \\text{(3.12)}`;
+hiddenFormulaCont = 'hiddenFormulaP';
+formulaCont='formulaSumP';
+canvasCont='canvasSumP';
+calculate(formulaPText, hiddenFormulaCont,formulaCont,canvasCont);
+
+let formulaQ0sText = `q_0 = \\frac{\\sum N_i P_i q_{\\text{0i}}}{\\sum N_i P_i} = \\frac{q_{\\text{0i}}*N1*P1 + q_{\\text{0i}}*N2*P2}{N1*P1 + N2*P2} \\text{(3.11)}`;
+hiddenFormulaCont = 'hiddenFormulaQ0s';
+formulaCont='formulaSumQ0s';
+canvasCont='canvasSumQ0s';
+calculate(formulaQ0sText, hiddenFormulaCont,formulaCont,canvasCont);
 
 let formulaQdText = `q_{\\text{сут}} = \\frac{q_\\text{0 сут} * U}{1000}`;
 hiddenFormulaCont = 'hiddenFormulaQd';
@@ -984,29 +1125,29 @@ formulaCont='formulaQdB1';
 canvasCont='canvasQdB1';
 calculate(formulaQdB1Text, hiddenFormulaCont,formulaCont,canvasCont);
 
-let formulaTableQdText = `q_{\\text{сут.}} \\text{, } \\frac{\\text{м³}}{\\text{сут}}`;
-hiddenFormulaCont = 'hiddenFormulaTableQd';
-formulaCont='formulaTableQd';
-canvasCont='canvasTableQd';
-calculate(formulaTableQdText, hiddenFormulaCont,formulaCont,canvasCont);
-
-let formulaTableQmhText = `q_{\\text{ср. час}} \\text{, } \\frac{\\text{м³}}{\\text{час}}`;
-hiddenFormulaCont = 'hiddenFormulaTableQmh';
-formulaCont='formulaTableQmh';
-canvasCont='canvasTableQmh';
-calculate(formulaTableQmhText, hiddenFormulaCont,formulaCont,canvasCont);
-
-let formulaTableQmaxhText = `q_{\\text{max час}} \\text{, } \\frac{\\text{м³}}{\\text{час}}`;
-hiddenFormulaCont = 'hiddenFormulaTableQmaxh';
-formulaCont='formulaTableQmaxh';
-canvasCont='canvasTableQmaxh';
-calculate(formulaTableQmaxhText, hiddenFormulaCont,formulaCont,canvasCont);
-
-let formulaTableQmaxsText = `q_{\\text{max сек.}} \\text{, } \\frac{\\text{л}}{\\text{сек}}`;
-hiddenFormulaCont = 'hiddenFormulaTableQmaxs';
-formulaCont='formulaTableQmaxs';
-canvasCont='canvasTableQmaxs';
-calculate(formulaTableQmaxsText, hiddenFormulaCont,formulaCont,canvasCont);
+// let formulaTableQdText = `q_{\\text{сут.}} \\text{, } \\frac{\\text{м³}}{\\text{сут}}`;
+// hiddenFormulaCont = 'hiddenFormulaTableQd';
+// formulaCont='formulaTableQd';
+// canvasCont='canvasTableQd';
+// calculate(formulaTableQdText, hiddenFormulaCont,formulaCont,canvasCont);
+//
+// let formulaTableQmhText = `q_{\\text{ср. час}} \\text{, } \\frac{\\text{м³}}{\\text{час}}`;
+// hiddenFormulaCont = 'hiddenFormulaTableQmh';
+// formulaCont='formulaTableQmh';
+// canvasCont='canvasTableQmh';
+// calculate(formulaTableQmhText, hiddenFormulaCont,formulaCont,canvasCont);
+//
+// let formulaTableQmaxhText = `q_{\\text{max час}} \\text{, } \\frac{\\text{м³}}{\\text{час}}`;
+// hiddenFormulaCont = 'hiddenFormulaTableQmaxh';
+// formulaCont='formulaTableQmaxh';
+// canvasCont='canvasTableQmaxh';
+// calculate(formulaTableQmaxhText, hiddenFormulaCont,formulaCont,canvasCont);
+//
+// let formulaTableQmaxsText = `q_{\\text{max сек.}} \\text{, } \\frac{\\text{л}}{\\text{сек}}`;
+// hiddenFormulaCont = 'hiddenFormulaTableQmaxs';
+// formulaCont='formulaTableQmaxs';
+// canvasCont='canvasTableQmaxs';
+// calculate(formulaTableQmaxsText, hiddenFormulaCont,formulaCont,canvasCont);
 
 function allValue(item, value) {
     let items = document.querySelectorAll(item);
