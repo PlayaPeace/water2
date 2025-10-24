@@ -37,8 +37,10 @@ let NP4;
 let a3;
 let a4;
 let Phb0;
+let PhT3;
 let Phb1;
 let qb0h;
+let qT3h;
 let qb1h;
 
 let formulaHtrResult;
@@ -411,13 +413,65 @@ for (let elem = 0; elem < inputs.length; elem++){
                 if (NP3Element) NP3Element.textContent = NP3;
             }
 
+            if (PsT3) {
+                PhT3 = (3600*0.2*Psb0)/200;
+                PhT3 = Number(Phb0.toFixed(6));
+                // let PhT3Calculate = "(3600 * 0.3 * " + PsT3 + ")/300 = " + PhT3;
+                // allValue('[PhT3-calculate]', PhT3Calculate);
+
+                let formulaPhT3Text = `\\text{2)} P_{\\text{ч}}^{\\text{T3}} = \\frac{3600 * 0.2 * ${PsT3}}{200} = ${Phb0}`;
+                hiddenFormulaCont = 'hiddenFormulaPhT3';
+                formulaCont='formulaPhT3';
+                canvasCont='canvasPhT3';
+                calculate(formulaPhT3Text, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (PhT3 && NT3) {
+                NP2T3 = Number((NT3 * PhT3).toFixed(3));
+                allValue('[NP2T3-calculate]', NP2T3)
+
+                let formulaA2NPT3Text = `\\text{α(N}\\text{P}_ч\\text{)} = α(${NT3} * ${PhT3}) = α(${NP2T3})`;
+                hiddenFormulaCont = 'hiddenFormulaAT3NP2';
+                formulaCont='formulaAT3NP2';
+                canvasCont='canvasAT3NP2';
+                calculate(formulaA2NPT3Text, hiddenFormulaCont,formulaCont,canvasCont);
+
+                // const Phb0Element = document.getElementById('Phb1-result');
+                // const Nb0Element = document.getElementById('Nb1-result');
+                //
+                // if (Phb0Element) Phb0Element.textContent = Phb0;
+                // if (Nb0Element) Nb0Element.textContent = Nb0;
+            }
+
+            if (NP2T3) {
+                let a = findAlphaByNP(NP2T3);
+                a = Number(a.toFixed(3));
+                allValue('[a2-T3-calculate]', a);
+                qT3h = Number((0.005*a*200).toFixed(4));
+                let qT3hCalculate = "0.005 * " + a + " * 200 = " + qT3h + " м³/час;";//³
+                allValue('[qT3h-calculate]', qT3hCalculate);
+
+                let formulaQhT3Text = `q_{\\text{ч}}^{\\text{T3}} = 0.005 * ${a} * 200 = ${qT3h} \\frac{\\text{м³}}{\\text{час}}`;
+                hiddenFormulaCont = 'hiddenFormulaQhT3';
+                formulaCont='formulaQhT3';
+                canvasCont='canvasQhT3';
+                calculate(formulaQhT3Text, hiddenFormulaCont,formulaCont,canvasCont);
+
+                // const Qb1maxhTableElement = document.getElementById('Qb1maxh-table');
+                // if (Qb1maxhTableElement) Qb1maxhTableElement.textContent = qb1h;
+                // allValue('Qb1maxh-table', qb1h);
+
+                const NP2T3Element = document.getElementById('NP2T3-result');
+                if (NP2T3Element) NP2T3Element.textContent = NP2T3;
+            }
+
             if (Psb1) {
                 Phb1 = (3600*0.2*Psb1)/200;
                 Phb1 = Number(Phb1.toFixed(6));
                 let Pb1Calculate = "(3600 * 0.2 * " + Psb1 + ")/200 = " + Phb1;
                 allValue('[Phb1-calculate]', Pb1Calculate);
 
-                let formulaPhb1Text = `\\text{2)} P_{\\text{ч}}^{\\text{B1}} = \\frac{3600 * 0.2 * ${Psb1}}{200} = ${Phb1}`;
+                let formulaPhb1Text = `\\text{3)} P_{\\text{ч}}^{\\text{B1}} = \\frac{3600 * 0.2 * ${Psb1}}{200} = ${Phb1}`;
                 hiddenFormulaCont = 'hiddenFormulaPhB1';
                 formulaCont='formulaPhB1';
                 canvasCont='canvasPhB1';
