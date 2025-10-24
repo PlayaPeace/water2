@@ -21,6 +21,10 @@ let qdb0InputCal;
 let qdT3InputCal;
 let qdb1InputCal;
 
+let qmhb0Input;
+let qmhT3Input;
+let qmhb1Input;
+
 let Htr;
 let Hnijt;
 
@@ -333,6 +337,38 @@ for (let elem = 0; elem < inputs.length; elem++){
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
+            if (qdb0InputCal) {
+                qmhb0Input = qdb0InputCal/24;
+                qmhb0Input = Number(qmhb0Input.toFixed(4));
+
+                let formulaText = `q^{\\text{B0}}_{\\text{ср час}} = \\frac{${qdb0InputCal}}{24} = ${qmhb0Input}\\frac{\\text{м³}}{\\text{час}} `;
+                hiddenFormulaCont = 'hiddenFormulaQmhB0Input';
+                formulaCont='formulaQmhB0Input';
+                canvasCont='canvasQmhB0Input';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (qdT3InputCal) {
+                qmhT3Input = qdT3InputCal/24;
+                qmhT3Input = Number(qmhT3Input.toFixed(4));
+
+                let formulaText = `q^{\\text{T3}}_{\\text{ср час}} = \\frac{${qdT3InputCal}}{24} = ${qmhT3Input}\\frac{\\text{м³}}{\\text{час}} `;                hiddenFormulaCont = 'hiddenFormulaQmhT3Input';
+                formulaCont='formulaQmhT3Input';
+                canvasCont='canvasQmhT3Input';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (qdb1InputCal) {
+                qmhb1Input = qdb1InputCal/24;
+                qmhb1Input = Number(qmhb1Input.toFixed(4));
+
+                let formulaText = `q^{\\text{B1}}_{\\text{ср час}} = \\frac{${qdb1InputCal}}{24} = ${qmhb1Input}\\frac{\\text{м³}}{\\text{час}} `;
+                hiddenFormulaCont = 'hiddenFormulaQmhB1Input';
+                formulaCont='formulaQmhB1Input';
+                canvasCont='canvasQmhB1Input';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
             if (U && Nb0) {
                 Psb0 = (11.6*U)/(3600*Nb0*0.3);
                 Psb0 = Number(Psb0.toFixed(6));
@@ -637,10 +673,20 @@ formulaCont='formulaQd';
 canvasCont='canvasQd';
 calculate(formulaQdText, hiddenFormulaCont,formulaCont,canvasCont);
 
+hiddenFormulaCont = 'hiddenFormulaQd2';
+formulaCont='formulaQd2';
+canvasCont='canvasQd2';
+calculate(formulaQdText, hiddenFormulaCont,formulaCont,canvasCont);
+
 let formulaQmhText = `q_{\\text{ср час}} = \\frac{q_\\text{сут}}{T}`;
 hiddenFormulaCont = 'hiddenFormulaQmh';
 formulaCont='formulaQmh';
 canvasCont='canvasQmh';
+calculate(formulaQmhText, hiddenFormulaCont,formulaCont,canvasCont);
+
+hiddenFormulaCont = 'hiddenFormulaQmh2';
+formulaCont='formulaQmh2';
+canvasCont='canvasQmh2';
 calculate(formulaQmhText, hiddenFormulaCont,formulaCont,canvasCont);
 
 let formulaPhText = `P_{\\text{ч}} = \\frac{P_{\\text{c}} * 3600 * q}{q_{\\text{0ч}}} {\\text{, где}}`;
