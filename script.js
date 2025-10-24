@@ -21,14 +21,18 @@ let qb0;
 let qb1;
 let qT3;
 let Psb0;
+let PsT3;
 let Psb1;
 let NP1;
+let NP1T3;
 let NP2;
 let a1;
 let a2;
 let qb0s;
+let qT3s
 let qb1s;
 let NP3;
+let NP2T3;
 let NP4;
 let a3;
 let a4;
@@ -161,7 +165,7 @@ for (let elem = 0; elem < inputs.length; elem++){
             }
 
             if(U && qT3) {
-                let formulaQT3Text = `q^{\\text{b1}}_{\\text{сут}} = \\frac{q^{\\text{T3}}_{\\text{сут}} * U}{1000} = \\frac{70 * ${U}}{1000} = ${qT3} \\frac{\\text{м³}}{\\text{сут}}`;
+                let formulaQT3Text = `q^{\\text{T3}}_{\\text{сут}} = \\frac{q^{\\text{T3}}_{\\text{сут}} * U}{1000} = \\frac{70 * ${U}}{1000} = ${qT3} \\frac{\\text{м³}}{\\text{сут}}`;
                 hiddenFormulaCont = 'hiddenFormulaQT3';
                 formulaCont='formulaQT3';
                 canvasCont='canvasQT3';
@@ -222,13 +226,26 @@ for (let elem = 0; elem < inputs.length; elem++){
                 calculate(formulaPB0sText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
+            if (U && NT3) {
+                PsT3 = (6.5*U)/(3600*NT3*0.2);
+                PsT3 = Number(PsT3.toFixed(6));
+                // let Pb0Calculate = "(11.6 * " + U + `)/(3600*${Nb0}*0.3) = ` + Psb0;
+                // allValue('[Pb0-calculate]', Pb0Calculate);
+
+                let formulaPT3sText = `\\text{2)} P_{\\text{сек}}^{\\text{T3}} = \\frac{6.5 * ${U}}{3600*${NT3}*0.2} = ${PsT3}`;
+                hiddenFormulaCont = 'hiddenFormulaPT3s';
+                formulaCont='formulaPT3s';
+                canvasCont='canvasPT3s';
+                calculate(formulaPT3sText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
             if (U && Nb1) {
                 Psb1 = (5.1*U)/(3600*Nb1*0.2);
                 Psb1 = Number(Psb1.toFixed(6));
                 let Pb1Calculate = "(5.1 * " + U + ")/(3600*${Nb1}*0.2) = " + Psb1;
                 allValue('[Pb1-calculate]', Pb1Calculate);
 
-                let formulaPB1sText = `\\text{2)} P_{\\text{сек}}^{\\text{B1}} = \\frac{5.1 * ${U}}{3600*${Nb1}*0.2} = ${Psb1}`;
+                let formulaPB1sText = `\\text{3)} P_{\\text{сек}}^{\\text{B1}} = \\frac{5.1 * ${U}}{3600*${Nb1}*0.2} = ${Psb1}`;
                 hiddenFormulaCont = 'hiddenFormulaPB1s';
                 formulaCont='formulaPB1s';
                 canvasCont='canvasPB1s';
@@ -267,6 +284,39 @@ for (let elem = 0; elem < inputs.length; elem++){
 
                 const NP1Element = document.getElementById('NP1-result');
                 if (NP1Element) NP1Element.textContent = NP1;
+            }
+
+            if (NT3 && PsT3) {
+                NP1T3 = Number((NT3 * PsT3).toFixed(3));
+                allValue('[NP1T3-calculate]', NP1T3)
+
+                let formulaAT3NP1Text = `\\text{α(N}\\text{P}_с\\text{)} = α(${NT3} * ${PsT3}) = α(${NP1T3})`;
+                hiddenFormulaCont = 'hiddenFormulaAT3NP1';
+                formulaCont='formulaAT3NP1';
+                canvasCont='canvasAT3NP1';
+                calculate(formulaAT3NP1Text, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (NP1T3) {
+                let a = findAlphaByNP(NP1T3);
+                a = Number(a.toFixed(3));
+                allValue('[a1T3-calculate]', a);
+                qT3s = Number((5*a*0.2).toFixed(4));
+                // let qT3sCalculate = "5 * " + a + " * 0.3 = " + qT3s + " л/с";
+                // allValue('[qb0s-calculate]', qT3sCalculate);
+
+                let formulaQsT3Text = `q_{\\text{сек}}^{\\text{T3}} = 5 * ${a} * 0.2 = ${qT3s} \\frac{\\text{л}}{\\text{с}}`;
+                hiddenFormulaCont = 'hiddenFormulaQsT3';
+                formulaCont='formulaQsT3';
+                canvasCont='canvasQsT3';
+                calculate(formulaQsT3Text, hiddenFormulaCont,formulaCont,canvasCont);
+
+                // const Qb0maxsTableElement = document.getElementById('Qb0maxs-table');
+                // if (Qb0maxsTableElement) Qb0maxsTableElement.textContent = qb0s;
+                // allValue('Qb0maxs-table', qb0s);
+                //
+                const NP1T3Element = document.getElementById('NP1T3-result');
+                if (NP1T3Element)NP1T3Element.textContent = NP1T3;
             }
 
             if (Nb1 && Psb1) {
