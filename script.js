@@ -297,6 +297,36 @@ for (let elem = 0; elem < inputs.length; elem++){
                 if (element) element.textContent = text;
             }
 
+            if (qdb0InputCal && qb0) {
+                let sumQDB0 = qdb0InputCal + qb0;
+                // let text = "" + qdb0InputCal + " + " + qb0 + " = " + sumQDB0 ;
+                // let element = document.getElementById('u-input-text');
+                // if (element) element.textContent = text;
+                let formulaText = `q^{\\text{B0}}_{сут} = \\sum q^{\\text{i}}_{B0} = ${qdb0InputCal} + ${qb0} = ${sumQDB0} \\frac{\\text{м³}}{\\text{сут}}`;
+                hiddenFormulaCont = 'hiddenFormulaSumQDB0';
+                formulaCont='formulaSumQDB0';
+                canvasCont='canvasSumQDB0';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (qdT3InputCal && qT3) {
+                let sumQDT3 = qdT3InputCal + qT3;
+                let formulaText = `q^{\\text{T3}}_{сут} = \\sum q^{\\text{i}}_{T3} = ${qdT3InputCal} + ${qT3} = ${sumQDT3} \\frac{\\text{м³}}{\\text{сут}}`;
+                hiddenFormulaCont = 'hiddenFormulaSumQDT3';
+                formulaCont='formulaSumQDT3';
+                canvasCont='canvasSumQDT3';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (qdb1InputCal && qb1) {
+                let sumQDB1 = qdb1InputCal + qb1;
+                let formulaText = `q^{\\text{B1}}_{сут} = \\sum q^{\\text{i}}_{B1} = ${qdb1InputCal} + ${qb1} = ${sumQDB1} \\frac{\\text{м³}}{\\text{сут}}`;
+                hiddenFormulaCont = 'hiddenFormulaSumQDB1';
+                formulaCont='formulaSumQDB1';
+                canvasCont='canvasSumQDB1';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
             if (nb0Nb1Input && numDevicesT3) {
                 let text = "Число водозаборных точек: N<sup>В0</sup> = " + nb0Nb1Input + " шт., N<sup>Т3</sup> = " + numDevicesT3 + " шт., N<sup>В1</sup> = " + nb0Nb1Input + " шт.";
                 const element = document.getElementById('nb0nb1nt3-input-text');
