@@ -36,6 +36,15 @@ let ANP3;
 let qSB0Input;
 let qST3Input;
 let qSB1Input;
+let pHB0Input;
+let pHT3Input;
+let pHB1Input;
+let qHB0Input;
+let qHT3Input;
+let qHB1Input;
+let ANP4;
+let ANP5;
+let ANP6;
 
 let Htr;
 let Hnijt;
@@ -473,10 +482,100 @@ for (let elem = 0; elem < inputs.length; elem++){
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
                 qSB1Input = Number((5*a*0.2).toFixed(4));
-                formulaText = `q_{\\text{сек}}^{\\text{T3}} = 5 * ${a} * 0.2 = ${qSB1Input} \\frac{\\text{л}}{\\text{с}}`;
+                formulaText = `q_{\\text{сек}}^{\\text{B1}} = 5 * ${a} * 0.2 = ${qSB1Input} \\frac{\\text{л}}{\\text{с}}`;
                 hiddenFormulaCont = 'hiddenFormulaQsB1Inp';
                 formulaCont='formulaQsB1Inp';
                 canvasCont='canvasQsB1Inp';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (pSB0Input) {
+                pHB0Input = (3600*0.3*pSB0Input)/300;
+                pHB0Input = Number(pHB0Input.toFixed(6));
+
+                let formulaPhb0Text = `\\text{1)} P_{\\text{ч}}^{\\text{BO}} = \\frac{3600 * 0.3 * ${pSB0Input}}{300} = ${pHB0Input}`;
+                hiddenFormulaCont = 'hiddenFormulaPhB0Inp';
+                formulaCont='formulaPhB0Inp';
+                canvasCont='canvasPhB0Inp';
+                calculate(formulaPhb0Text, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (pHB0Input && pSB0Input && nb0Nb1Input) {
+                ANP4 = Number((pHB0Input * pSB0Input).toFixed(3));
+                let a = findAlphaByNP(ANP4);
+                a = Number(a.toFixed(3));
+
+                let formulaText = `\\text{α(N}\\text{P}_ч\\text{)} = α(${pHB0Input} * ${nb0Nb1Input}) = α(${ANP4}) = ${a}`;
+                hiddenFormulaCont = 'hiddenFormulaANP4';
+                formulaCont='formulaANP4';
+                canvasCont='canvasANP4';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                qHB0Input = Number((0.005*a*300).toFixed(4));
+                formulaText = `q_{\\text{ч}}^{\\text{B0}} = 0.005 * ${a} * 300 = ${qHB0Input} \\frac{\\text{м³}}{\\text{час}}`;
+                hiddenFormulaCont = 'hiddenFormulaQhB0Inp';
+                formulaCont='formulaQhB0Inp';
+                canvasCont='canvasQhB0Inp';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (pST3Input) {
+                pHT3Input = (3600*0.2*pST3Input)/200;
+                pHT3Input = Number(pHT3Input.toFixed(6));
+
+                let formulaText = `\\text{2)} P_{\\text{ч}}^{\\text{T3}} = \\frac{3600 * 0.2 * ${pST3Input}}{200} = ${pHT3Input}`;
+                hiddenFormulaCont = 'hiddenFormulaPhT3Inp';
+                formulaCont='formulaPhT3Inp';
+                canvasCont='canvasPhT3Inp';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (pHT3Input && pST3Input && numDevicesT3) {
+                ANP5 = Number((pHT3Input * pST3Input).toFixed(3));
+                let a = findAlphaByNP(ANP5);
+                a = Number(a.toFixed(3));
+
+                let formulaText = `\\text{α(N}\\text{P}_ч\\text{)} = α(${pHT3Input} * ${numDevicesT3}) = α(${ANP5}) = ${a}`;
+                hiddenFormulaCont = 'hiddenFormulaANP5';
+                formulaCont='formulaANP5';
+                canvasCont='canvasANP5';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                qHT3Input = Number((0.005*a*200).toFixed(4));
+                formulaText = `q_{\\text{ч}}^{\\text{T3}} = 0.005 * ${a} * 200 = ${qHT3Input} \\frac{\\text{м³}}{\\text{час}}`;
+                hiddenFormulaCont = 'hiddenFormulaQhT3Inp';
+                formulaCont='formulaQhT3Inp';
+                canvasCont='canvasQhT3Inp';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (pSB1Input) {
+                pHB1Input = (3600*0.2*pSB1Input)/200;
+                pHB1Input = Number(pHB1Input.toFixed(6));
+
+                let formulaText = `\\text{3)} P_{\\text{ч}}^{\\text{B1}} = \\frac{3600 * 0.2 * ${pSB1Input}}{200} = ${pHB1Input}`;
+                hiddenFormulaCont = 'hiddenFormulaPhB1Inp';
+                formulaCont='formulaPhB1Inp';
+                canvasCont='canvasPhB1Inp';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (pHB1Input && pSB1Input && nb0Nb1Input) {
+                ANP6 = Number((pHB1Input * pSB1Input).toFixed(3));
+                let a = findAlphaByNP(ANP6);
+                a = Number(a.toFixed(3));
+
+                let formulaText = `\\text{α(N}\\text{P}_ч\\text{)} = α(${pHB1Input} * ${nb0Nb1Input}) = α(${ANP6}) = ${a}`;
+                hiddenFormulaCont = 'hiddenFormulaANP6';
+                formulaCont='formulaANP6';
+                canvasCont='canvasANP6';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                qHB1Input = Number((0.005*a*200).toFixed(4));
+                formulaText = `q_{\\text{ч}}^{\\text{B1}} = 0.005 * ${a} * 200 = ${qHB1Input} \\frac{\\text{м³}}{\\text{час}}`;
+                hiddenFormulaCont = 'hiddenFormulaQhB1Inp';
+                formulaCont='formulaQhB1Inp';
+                canvasCont='canvasQhB1Inp';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
@@ -1112,12 +1211,3 @@ const npToAlphaTable = [
     { np: 725.000, alpha: 161.06 }, { np: 730.000, alpha: 162.11 }, { np: 735.000, alpha: 163.17 },
     { np: 740.000, alpha: 164.22 }, { np: 745.000, alpha: 165.28 }, { np: 755.000, alpha: 167.39 }
 ];
-
-// for (let i = 0.000; i <= 0.195; i += 0.001) {
-//     let id = Number(i.toFixed(3));
-//     console.log(id, findAlphaByNP(id));
-// }
-// for (let i = 0; i <= 755; i += 1) {
-//     let id = Number(i.toFixed(3));
-//     console.log(id, findAlphaByNP(id));
-// }
