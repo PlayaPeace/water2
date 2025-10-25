@@ -606,6 +606,7 @@ for (let elem = 0; elem < inputs.length; elem++){
 
             if (qDmaxB0Input && qDmaxT3Input) {
                 qDmaxB1Input = qDmaxB0Input - qDmaxT3Input;
+                qDmaxB1Input = Number(qDmaxB1Input.toFixed(2));
             }
 
             if (nb0Nb1Input && uInput && qDmaxB0Input && q0GenInput) {
@@ -619,7 +620,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (nb0Nb1Input && pSB0Input) {
+            if (nb0Nb1Input && pSB0Input && q0GenInput) {
                 ANP1 = Number((nb0Nb1Input * pSB0Input).toFixed(3));
                 let a = findAlphaByNP(ANP1);
                 a = Number(a.toFixed(3));
@@ -630,26 +631,26 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasANP1';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                qSB0Input = Number((5*a*0.3).toFixed(4));
-                formulaText = `q_{\\text{сек}}^{\\text{B0}} = 5 * ${a} * 0.3 = ${qSB0Input} \\frac{\\text{л}}{\\text{с}}`;
+                qSB0Input = Number((5*a*q0GenInput).toFixed(4));
+                formulaText = `q_{\\text{сек}}^{\\text{B0}} = 5 * ${a} * ${q0GenInput} = ${qSB0Input} \\frac{\\text{л}}{\\text{с}}`;
                 hiddenFormulaCont = 'hiddenFormulaQsB0Inp';
                 formulaCont='formulaQsB0Inp';
                 canvasCont='canvasQsB0Inp';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (numDevicesT3 && uInput && qDmaxT3Input) {
-                pST3Input = qDmaxT3Input * uInput /3600 /numDevicesT3 /0.2;
+            if (numDevicesT3 && uInput && qDmaxT3Input && q0OrInput) {
+                pST3Input = qDmaxT3Input * uInput /3600 /numDevicesT3 /q0OrInput;
                 pST3Input = Number(pST3Input.toFixed(4));
 
-                let formulaText = `\\text{2)} P_{\\text{сек}}^{\\text{T3}} = \\frac{${qDmaxT3Input} * ${uInput}}{3600*${numDevicesT3}*0.2} = ${pST3Input}`;
+                let formulaText = `\\text{2)} P_{\\text{сек}}^{\\text{T3}} = \\frac{${qDmaxT3Input} * ${uInput}}{3600*${numDevicesT3} * ${q0OrInput}} = ${pST3Input}`;
                 hiddenFormulaCont = 'hiddenFormulaPsT3Inp';
                 formulaCont='formulaPsT3Inp';
                 canvasCont='canvasPsT3Inp';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (numDevicesT3 && pST3Input) {
+            if (numDevicesT3 && pST3Input && q0OrInput) {
                 ANP2 = Number((numDevicesT3 * pST3Input).toFixed(3));
                 let a = findAlphaByNP(ANP2);
                 a = Number(a.toFixed(3));
@@ -660,8 +661,8 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasANP2';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                qST3Input = Number((5*a*0.2).toFixed(4));
-                formulaText = `q_{\\text{сек}}^{\\text{T3}} = 5 * ${a} * 0.2 = ${qST3Input} \\frac{\\text{л}}{\\text{с}}`;
+                qST3Input = Number((5*a*q0OrInput).toFixed(4));
+                formulaText = `q_{\\text{сек}}^{\\text{T3}} = 5 * ${a} * ${q0OrInput} = ${qST3Input} \\frac{\\text{л}}{\\text{с}}`;
                 hiddenFormulaCont = 'hiddenFormulaQsT3Inp';
                 formulaCont='formulaQsT3Inp';
                 canvasCont='canvasQsT3Inp';
@@ -679,7 +680,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (nb0Nb1Input && pSB1Input) {
+            if (nb0Nb1Input && pSB1Input && q0OrInput) {
                 ANP3 = Number((nb0Nb1Input * pSB1Input).toFixed(3));
                 let a = findAlphaByNP(ANP3);
                 a = Number(a.toFixed(3));
@@ -690,26 +691,26 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasANP3';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                qSB1Input = Number((5*a*0.2).toFixed(4));
-                formulaText = `q_{\\text{сек}}^{\\text{B1}} = 5 * ${a} * 0.2 = ${qSB1Input} \\frac{\\text{л}}{\\text{с}}`;
+                qSB1Input = Number((5*a*q0OrInput).toFixed(4));
+                formulaText = `q_{\\text{сек}}^{\\text{B1}} = 5 * ${a} * ${q0OrInput} = ${qSB1Input} \\frac{\\text{л}}{\\text{с}}`;
                 hiddenFormulaCont = 'hiddenFormulaQsB1Inp';
                 formulaCont='formulaQsB1Inp';
                 canvasCont='canvasQsB1Inp';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (pSB0Input) {
-                pHB0Input = (3600*0.3*pSB0Input)/300;
+            if (pSB0Input && q0GenInput && q0GenHrInput) {
+                pHB0Input = (3600*q0GenInput*pSB0Input)/q0GenHrInput;
                 pHB0Input = Number(pHB0Input.toFixed(6));
 
-                let formulaPhb0Text = `\\text{1)} P_{\\text{ч}}^{\\text{BO}} = \\frac{3600 * 0.3 * ${pSB0Input}}{300} = ${pHB0Input}`;
+                let formulaPhb0Text = `\\text{1)} P_{\\text{ч}}^{\\text{BO}} = \\frac{3600 * ${q0GenInput} * ${pSB0Input}}{${q0GenHrInput}} = ${pHB0Input}`;
                 hiddenFormulaCont = 'hiddenFormulaPhB0Inp';
                 formulaCont='formulaPhB0Inp';
                 canvasCont='canvasPhB0Inp';
                 calculate(formulaPhb0Text, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (pHB0Input && pSB0Input && nb0Nb1Input) {
+            if (pHB0Input && pSB0Input && nb0Nb1Input && q0GenHrInput) {
                 ANP4 = Number((pHB0Input * pSB0Input).toFixed(3));
                 let a = findAlphaByNP(ANP4);
                 a = Number(a.toFixed(3));
@@ -720,26 +721,26 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasANP4';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                qHB0Input = Number((0.005*a*300).toFixed(4));
-                formulaText = `q_{\\text{ч}}^{\\text{B0}} = 0.005 * ${a} * 300 = ${qHB0Input} \\frac{\\text{м³}}{\\text{час}}`;
+                qHB0Input = Number((0.005*a*q0GenHrInput).toFixed(4));
+                formulaText = `q_{\\text{ч}}^{\\text{B0}} = 0.005 * ${a} * ${q0GenHrInput} = ${qHB0Input} \\frac{\\text{м³}}{\\text{час}}`;
                 hiddenFormulaCont = 'hiddenFormulaQhB0Inp';
                 formulaCont='formulaQhB0Inp';
                 canvasCont='canvasQhB0Inp';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (pST3Input) {
-                pHT3Input = (3600*0.2*pST3Input)/200;
+            if (pST3Input && q0OrInput && q0OrHrInput) {
+                pHT3Input = (3600*q0OrInput*pST3Input)/q0OrHrInput;
                 pHT3Input = Number(pHT3Input.toFixed(6));
 
-                let formulaText = `\\text{2)} P_{\\text{ч}}^{\\text{T3}} = \\frac{3600 * 0.2 * ${pST3Input}}{200} = ${pHT3Input}`;
+                let formulaText = `\\text{2)} P_{\\text{ч}}^{\\text{T3}} = \\frac{3600 * ${q0OrInput} * ${pST3Input}}{${q0OrHrInput}} = ${pHT3Input}`;
                 hiddenFormulaCont = 'hiddenFormulaPhT3Inp';
                 formulaCont='formulaPhT3Inp';
                 canvasCont='canvasPhT3Inp';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (pHT3Input && pST3Input && numDevicesT3) {
+            if (pHT3Input && pST3Input && numDevicesT3 && q0OrHrInput) {
                 ANP5 = Number((pHT3Input * pST3Input).toFixed(3));
                 let a = findAlphaByNP(ANP5);
                 a = Number(a.toFixed(3));
@@ -750,26 +751,26 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasANP5';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                qHT3Input = Number((0.005*a*200).toFixed(4));
-                formulaText = `q_{\\text{ч}}^{\\text{T3}} = 0.005 * ${a} * 200 = ${qHT3Input} \\frac{\\text{м³}}{\\text{час}}`;
+                qHT3Input = Number((0.005*a*q0OrHrInput).toFixed(4));
+                formulaText = `q_{\\text{ч}}^{\\text{T3}} = 0.005 * ${a} * ${q0OrHrInput} = ${qHT3Input} \\frac{\\text{м³}}{\\text{час}}`;
                 hiddenFormulaCont = 'hiddenFormulaQhT3Inp';
                 formulaCont='formulaQhT3Inp';
                 canvasCont='canvasQhT3Inp';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (pSB1Input) {
-                pHB1Input = (3600*0.2*pSB1Input)/200;
+            if (pSB1Input && q0OrInput && q0OrHrInput) {
+                pHB1Input = (3600*q0OrInput*pSB1Input)/q0OrHrInput;
                 pHB1Input = Number(pHB1Input.toFixed(6));
 
-                let formulaText = `\\text{3)} P_{\\text{ч}}^{\\text{B1}} = \\frac{3600 * 0.2 * ${pSB1Input}}{200} = ${pHB1Input}`;
+                let formulaText = `\\text{3)} P_{\\text{ч}}^{\\text{B1}} = \\frac{3600 * ${q0OrInput} * ${pSB1Input}}{${q0OrHrInput}} = ${pHB1Input}`;
                 hiddenFormulaCont = 'hiddenFormulaPhB1Inp';
                 formulaCont='formulaPhB1Inp';
                 canvasCont='canvasPhB1Inp';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (pHB1Input && pSB1Input && nb0Nb1Input) {
+            if (pHB1Input && pSB1Input && nb0Nb1Input && q0OrHrInput) {
                 ANP6 = Number((pHB1Input * pSB1Input).toFixed(3));
                 let a = findAlphaByNP(ANP6);
                 a = Number(a.toFixed(3));
@@ -780,8 +781,8 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasANP6';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                qHB1Input = Number((0.005*a*200).toFixed(4));
-                formulaText = `q_{\\text{ч}}^{\\text{B1}} = 0.005 * ${a} * 200 = ${qHB1Input} \\frac{\\text{м³}}{\\text{час}}`;
+                qHB1Input = Number((0.005*a*q0OrHrInput).toFixed(4));
+                formulaText = `q_{\\text{ч}}^{\\text{B1}} = 0.005 * ${a} * ${q0OrHrInput} = ${qHB1Input} \\frac{\\text{м³}}{\\text{час}}`;
                 hiddenFormulaCont = 'hiddenFormulaQhB1Inp';
                 formulaCont='formulaQhB1Inp';
                 canvasCont='canvasQhB1Inp';
