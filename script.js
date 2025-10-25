@@ -208,13 +208,13 @@ for (let elem = 0; elem < inputs.length; elem++){
             }
 
             if (numBuildings && numSections && numFloors && numApartments && population) {
-                U = parseFloat(numBuildings) * parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numApartments) * parseFloat(population);
+                U = parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numApartments) * parseFloat(population);
                 U = Number(U.toFixed(2));
-                let uCalculate = numBuildings + " * " + numSections + " * " + numFloors + " * " + numApartments + " * " + population + " = " + U;
-                allValue('[u-calculate]', uCalculate)
+                let uCalculate = numSections + " * " + numFloors + " * " + numApartments + " * " + population + " = " + U;
+                allValue('[u-calculate]', uCalculate);
                 U = Math.ceil(U);
-                allValue('[u]', U.toString() + " чел")
-                allValue('[u-3]', U.toString() + " чел. (количество водопотребителей)")
+                allValue('[u]', U.toString() + " чел");
+                allValue('[u-3]', U.toString() + " чел. (количество водопотребителей)");
 
                 qb0 = 180*U/1000;
                 qb0 = Number(qb0.toFixed(2)); //to fixed
