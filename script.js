@@ -207,7 +207,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 calculate(formulaHnijtResult, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (numBuildings && numSections && numFloors && numApartments && population) {
+            if (numSections && numFloors && numApartments && population) {
                 U = parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numApartments) * parseFloat(population);
                 U = Number(U.toFixed(2));
                 let uCalculate = numSections + " * " + numFloors + " * " + numApartments + " * " + population + " = " + U;
@@ -406,7 +406,7 @@ for (let elem = 0; elem < inputs.length; elem++){
 
             if (qdb0Input && qdT3Input) {
                 qdb1Input = qdb0Input - qdT3Input;
-                // qdb1Input = Number(qdb1Input.toFixed(3));
+                qdb1Input = Number(qdb1Input.toFixed(3));
 
                 let formulaText = `q_{\\text{сут}}^{\\text{B1}} = ${qdb0Input} - ${qdT3Input} =  ${qdb1Input}\\frac{\\text{л}}{\\text{сут}} `;
                 hiddenFormulaCont = 'hiddenFormulaQdB1Input';
@@ -463,7 +463,8 @@ for (let elem = 0; elem < inputs.length; elem++){
                 qmhT3Input = qdT3InputCal/24;
                 qmhT3Input = Number(qmhT3Input.toFixed(4));
 
-                let formulaText = `q^{\\text{T3}}_{\\text{ср час}} = \\frac{${qdT3InputCal}}{24} = ${qmhT3Input}\\frac{\\text{м³}}{\\text{час}} `;                hiddenFormulaCont = 'hiddenFormulaQmhT3Input';
+                let formulaText = `q^{\\text{T3}}_{\\text{ср час}} = \\frac{${qdT3InputCal}}{24} = ${qmhT3Input}\\frac{\\text{м³}}{\\text{час}} `;
+                hiddenFormulaCont = 'hiddenFormulaQmhT3Input';
                 formulaCont='formulaQmhT3Input';
                 canvasCont='canvasQmhT3Input';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
