@@ -252,7 +252,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 Un = Math.ceil(Un);
                 let uNCalculate = numSections + " * " + numFloors + " * " + numApartments + " * " + population + " * " + numBuildings + " = " + Un + " чел.";
                 allValue('[u-n-calculate]', uNCalculate);
-                allValue('[u-n]', Un.toString() + " .(количество водопотребителей в " + numBuildings + " домах)");
+                allValue('[u-n]', Un.toString() + " чел.(количество водопотребителей в " + numBuildings + " домах)");
                 allValue('[u-3-n]', Un.toString() + " чел. (количество водопотребителей)");
 
                 qb0n = 180*Un/1000;
@@ -1526,6 +1526,23 @@ hiddenFormulaCont = 'hiddenFormulaPh3';
 formulaCont='formulaPh3';
 canvasCont='canvasPh3';
 calculate(formulaPhText, hiddenFormulaCont,formulaCont,canvasCont);
+
+hiddenFormulaCont = 'hiddenFormulaPhn';
+formulaCont='formulaPhn';
+canvasCont='canvasPhn';
+calculate(formulaPhText, hiddenFormulaCont,formulaCont,canvasCont);
+
+// let formulaPhnText = `P = \\frac{q_{\\text{0 час}} * U}{3600 * N * q_0}`;
+// hiddenFormulaCont = 'hiddenFormulaPhn';
+// formulaCont='formulaPhn';
+// canvasCont='canvasPhn';
+// calculate(formulaPhnText, hiddenFormulaCont,formulaCont,canvasCont);
+
+let formulaPsnText = `P = \\frac{q_{\\text{0 сек}} * U}{3600 * N * q_0}`;
+hiddenFormulaCont = 'hiddenFormulaPsn';
+formulaCont='formulaPsn';
+canvasCont='canvasPsn';
+calculate(formulaPsnText, hiddenFormulaCont,formulaCont,canvasCont);
 
 let formulaQdB0Text = `q_{\\text{сут}}^{\\text{B0}} = 180 \\frac{\\text{л}}{\\text{сут}}`;
 hiddenFormulaCont = 'hiddenFormulaQdB0';
