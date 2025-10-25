@@ -309,6 +309,12 @@ for (let elem = 0; elem < inputs.length; elem++){
                 allValue('[NT3-calculate]', NT3Calculate + " шт")
             }
 
+            if (numBuildings) {
+                let text = "Определение расчетных расходов для " + numBuildings + " жилых зданий";
+                let element = document.getElementById('3.9-title-text');
+                if (element) element.textContent = text;
+            }
+
             if (uInput) {
                 let text = "Число потребителей: U = " + uInput + " человек";
                 let element = document.getElementById('u-input-text');
