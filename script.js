@@ -13,6 +13,8 @@ let typeOfBuilding;
 let nb0Nb1Input;
 let uInput;
 let numDevicesT3;
+let q0GenInput;
+let q0Input;
 
 let qdb0Input;
 let qdT3Input;
@@ -208,6 +210,16 @@ for (let elem = 0; elem < inputs.length; elem++){
             if (this.hasAttribute('data-q-dmax-T3-input')) {
                 qDmaxT3Input = this.value;
                 allValue('[data-q-dmax-T3-input]', qDmaxT3Input);
+            }
+
+            if (this.hasAttribute('data-q0-general')) {
+                q0GenInput = this.value;
+                allValue('[data-q0-general]', qDmaxT3Input);
+            }
+
+            if (this.hasAttribute('data-q0')) {
+                q0Input = this.value;
+                allValue('data-q0]', qDmaxT3Input);
             }
 
             if (numFloors) {
