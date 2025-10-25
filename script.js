@@ -883,7 +883,6 @@ for (let elem = 0; elem < inputs.length; elem++){
                 let a = findAlphaByNP(NP1n);
                 a = Number(a.toFixed(3));
                 qb0sn = Number((5*a*0.3).toFixed(4));
-                let qb0snCalculate = "5 * " + a + " * 0.3 = " + qb0sn + " л/с";
 
                 let formulaText = `\\text{α(N}\\text{P}_с\\text{)} = α(${Nb0n} * ${Psb0n}) = α(${NP1n}) = ${a}`;
                 hiddenFormulaCont = 'hiddenFormulaA1NPn';
@@ -1287,7 +1286,7 @@ for (let elem = 0; elem < inputs.length; elem++){
             }
 
             if (pSB0 && Nb0 && nb0Nb1Input) {
-                ANP7 = Number(((Nb0+nb0Nb1Input) * pSB0).toFixed(3));
+                ANP7 = Number(((Number(Nb0)+Number(nb0Nb1Input)) * pSB0).toFixed(3));
                 let sumN = Number(Nb0)+Number(nb0Nb1Input);
                 let a = findAlphaByNP(ANP7);
                 a = Number(a.toFixed(3));
@@ -1324,7 +1323,7 @@ for (let elem = 0; elem < inputs.length; elem++){
             }
 
             if (pST3 && NT3 && nT3Input) {
-                ANP8 = Number(((Nb0+nT3Input) * pST3).toFixed(3));
+                ANP8 = Number(((Number(NT3)+Number(nT3Input)) * pST3).toFixed(3));
                 let sumN = Number(NT3)+Number(nT3Input);
                 let a = findAlphaByNP(ANP8);
                 a = Number(a.toFixed(3));
@@ -1361,7 +1360,7 @@ for (let elem = 0; elem < inputs.length; elem++){
             }
 
             if (pSB1 && Nb1 && nb0Nb1Input) {
-                ANP9 = Number(((Nb1+nb0Nb1Input) * pSB1).toFixed(3));
+                ANP9 = Number(((Number(Nb1)+(nb0Nb1Input)) * pSB1).toFixed(3));
                 let sumN = Number(Nb1)+Number(nb0Nb1Input);
                 let a = findAlphaByNP(ANP9);
                 a = Number(a.toFixed(3));
@@ -1398,7 +1397,7 @@ for (let elem = 0; elem < inputs.length; elem++){
             }
 
             if (pHB0 && Nb0 && nb0Nb1Input) {
-                ANP10 = Number(((Nb0+nb0Nb1Input) * pHB0).toFixed(3));
+                ANP10 = Number(((Number(Nb0)+Number(nb0Nb1Input)) * pHB0).toFixed(3));
                 let sumN = Number(Nb0)+Number(nb0Nb1Input);
                 let a = findAlphaByNP(ANP10);
                 a = Number(a.toFixed(3));
@@ -1435,7 +1434,7 @@ for (let elem = 0; elem < inputs.length; elem++){
             }
 
             if (pHT3 && NT3 && nT3Input) {
-                ANP11 = Number(((NT3+nT3Input) * pHT3).toFixed(3));
+                ANP11 = Number(((Number(NT3)+(Number(nT3Input))) * pHT3).toFixed(3));
                 let sumN = Number(NT3)+Number(nT3Input);
                 let a = findAlphaByNP(ANP11);
                 a = Number(a.toFixed(3));
@@ -1472,7 +1471,7 @@ for (let elem = 0; elem < inputs.length; elem++){
             }
 
             if (pHB1 && Nb1 && nb0Nb1Input) {
-                ANP12 = Number(((Nb1+nb0Nb1Input) * pHB1).toFixed(3));
+                ANP12 = Number(((Number(Nb1)+Number(nb0Nb1Input)) * pHB1).toFixed(3));
                 let sumN = Number(Nb1)+Number(nb0Nb1Input);
                 let a = findAlphaByNP(ANP12);
                 a = Number(a.toFixed(3));
