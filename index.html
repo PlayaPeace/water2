@@ -475,12 +475,6 @@
     </span>
 </p>
 
-<!--<p class="mso-normal">-->
-<!--    <span class="text-content">-->
-<!--        n<sub>дом</sub> – число домов на генплане. n<sub>зд.</sub> = <input type="text" data-num-buildings>-->
-<!--    </span>-->
-<!--</p>-->
-
 <p class="mso-normal">
     <span class="text-content">
         U = <data u-calculate> </data>
@@ -789,54 +783,8 @@
 <div id="formulaQhB1" style="text-indent: 1.25cm;">*формула*</div>
 <canvas id="canvasQhB1" style="display: none; text-indent: 1.25cm;"></canvas>
 
-<!--table formulas-->
-
-<!--<div id="hiddenFormulaTableQd"></div>-->
-<!--<canvas id="canvasTableQd" style="display: none; text-indent: 1.25cm;"></canvas>-->
-
-<!--<div id="hiddenFormulaTableQmh"></div>-->
-<!--<canvas id="canvasTableQmh" style="display: none; text-indent: 1.25cm;"></canvas>-->
-
-<!--<div id="hiddenFormulaTableQmaxh"></div>-->
-<!--<canvas id="canvasTableQmaxh" style="display: none; text-indent: 1.25cm;"></canvas>-->
-
-<!--<div id="hiddenFormulaTableQmaxs"></div>-->
-<!--<canvas id="canvasTableQmaxs" style="display: none; text-indent: 1.25cm;"></canvas>-->
-
 <br clear="all" style="page-break-before: always;">
 <br clear="all" style="page-break-before: always;">
-
-<!--<p class="mso-heading">-->
-<!--    <span class="text-content">-->
-<!--        Таблица А.1 «Расчётные расходы для жилого дома»-->
-<!--    </span>-->
-<!--</p>-->
-
-<!--<div class="table-container">-->
-<!--    <table>-->
-<!--        <tr>-->
-<!--            <td>Система</td>-->
-<!--            <td><div id="formulaTableQd">*формула*</div></td>-->
-<!--            <td><div id="formulaTableQmh">*формула*</div></td>-->
-<!--            <td><div id="formulaTableQmaxh">*формула*</div></td>-->
-<!--            <td><div id="formulaTableQmaxs">*формула*</div></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td>B0</td>-->
-<!--            <td><span id="Qb0d-table"></span></td>-->
-<!--            <td><span id="Qb0mh-table"></span></td>-->
-<!--            <td><span id="Qb0maxh-table"></span></td>-->
-<!--            <td><span id="Qb0maxs-table"></span></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td>B1</td>-->
-<!--            <td><span id="Qb1d-table"></span></td>-->
-<!--            <td><span id="Qb1mh-table"></span></td>-->
-<!--            <td><span id="Qb1maxh-table"></span></td>-->
-<!--            <td><span id="Qb1maxs-table"></span></td>-->
-<!--        </tr>-->
-<!--    </table>-->
-<!--</div>-->
 
 <h2 class="subchapter-heading-0">
     <a name="_Toc211027148" class="chapter-anchor">
@@ -845,8 +793,130 @@
     <span class="chapter-title"><span id="3.9-title-text"></span> </span>
 </h2>
 
+<p class="mso-normal">
+    <span class="text-content">
+        Число потребителей определяем согласно формуле (3.10)
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        U = U<sub>0</sub> * n<sub>кв.на эт.</sub> * n<sub>секц.</sub> * n<sub>эт.</sub> * n<sub>зд.</sub>, (3.10) где:
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        U<sub>0</sub> – заселенность. U<sub>0</sub> = <input type="text" data-population>
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        n<sub>кв.на эт.</sub> – число квартир на этаже. n<sub>кв.на эт.</sub> = <input type="text" data-num-apartments>
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        n<sub>секц.</sub> – количество секций. n<sub>секц.</sub> = <input type="text" data-num-sections>
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        n<sub>эт.</sub> – число этажей в доме. n<sub>эт.</sub> = <input type="text" data-num-floors>
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        n<sub>дом</sub> – число домов на генплане. n<sub>зд.</sub> = <input type="text" data-num-buildings>
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        U = <data u-n-calculate> </data>
+    </span>
+</p>
+
+<h3 class="subchapter-heading-0">
+    <a name="_Toc211027149" class="chapter-anchor">
+        <span class="chapter-number">3.9.1</span>
+    </a>
+    <span class="chapter-title">Число водозаборных точек:</span>
+</h3>
+
+<p class="mso-normal">
+    <span class="text-content">
+        N<sub>b0</sub> = <data Nb0-n-calculate> </data>
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        N<sub>T3</sub> = <data NT3-n-calculate> </data>
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+         N<sub>b1</sub> = <data Nb1-n-calculate> </data>
+    </span>
+</p>
+
+<h3 class="subchapter-heading-0">
+    <a name="_Toc211027150" class="chapter-anchor">
+        <span class="chapter-number">3.9.2</span>
+    </a>
+    <span class="chapter-title">Расчёт суточного расхода:</span>
+</h3>
+
+<div id="hiddenFormulaQd3"></div>
+<div id="formulaQd3" style="text-indent: 1.25cm;">*формула*</div>
+<canvas id="canvasQd3" style="display: none; text-indent: 1.25cm;"></canvas>
+
+<div id="hiddenFormulaQdB0c1"></div>
+<div id="formulaQdB0c1" style="text-indent: 1.25cm;">*формула*</div>
+<canvas id="canvasQdB0c1" style="display: none; text-indent: 1.25cm;"></canvas>
+
+<div id="hiddenFormulaQdT3c1"></div>
+<div id="formulaQdT3c1" style="text-indent: 1.25cm;">*формула*</div>
+<canvas id="canvasQdT3c1" style="display: none; text-indent: 1.25cm;"></canvas>
+
+<div id="hiddenFormulaQdB1c1"></div>
+<div id="formulaQdB1c1" style="text-indent: 1.25cm;">*формула*</div>
+<canvas id="canvasQdB1c1" style="display: none; text-indent: 1.25cm;"></canvas>
+
+<p class="mso-normal">
+    <span class="text-content">
+        U = <data u-n> </data>
+    </span>
+</p>
+
+<div id="hiddenFormulaQb0n"></div>
+<div id="formulaQb0n" style="text-indent: 1.25cm;">*формула*</div>
+<canvas id="canvasQb0n" style="display: none; text-indent: 1.25cm;"></canvas>
+
+<div id="hiddenFormulaQT3n"></div>
+<div id="formulaQT3n" style="text-indent: 1.25cm;">*формула*</div>
+<canvas id="canvasQT3n" style="display: none; text-indent: 1.25cm;"></canvas>
+
+<div id="hiddenFormulaQb1n"></div>
+<div id="formulaQb1n" style="text-indent: 1.25cm;">*формула*</div>
+<canvas id="canvasQb1n" style="display: none; text-indent: 1.25cm;"></canvas>
 
 
+
+
+
+
+
+
+
+
+<!--исправить токи-->
 <h2 class="subchapter-heading-0">
     <a name="_Toc211027149" class="chapter-anchor">
         <span class="chapter-number">3.10</span>

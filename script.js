@@ -1,5 +1,6 @@
 'use strict';
 
+// поля ввода
 let numBuildings;
 let numSections;
 let numFloors;
@@ -7,7 +8,7 @@ let floorHeight;
 let population;
 let numDevices;
 let numApartments;
-
+// доп поля ввода
 let typeOfBuilding;
 let nb0Nb1Input;
 let uInput;
@@ -64,6 +65,14 @@ let qHB0;
 let qHT3;
 let qHB1;
 
+let Un;
+let Nb0n;
+let Nb1n;
+let NT3n;
+let qb0n;
+let qT3n;
+let qb1n;
+
 let Htr;
 let Hnijt;
 
@@ -97,13 +106,9 @@ let qb0h;
 let qT3h;
 let qb1h;
 
-let formulaHtrResult;
-let formulaHnijtResult;
 let hiddenFormulaCont;
 let formulaCont;
 let canvasCont;
-
-let sumHtr = document.querySelector('[data-sum-Htr]');
 
 let inputs = document.querySelectorAll('input');
 for (let elem = 0; elem < inputs.length; elem++){
@@ -190,27 +195,27 @@ for (let elem = 0; elem < inputs.length; elem++){
 
             if (numFloors) {
                 Htr = 10+4*(numFloors-1);
-                formulaHtrResult = `H_{\\text{тр}} = 10+4*(${numFloors}-1) = ${Htr} м (1.1)`;
+                let formulaResult = `H_{\\text{тр}} = 10+4*(${numFloors}-1) = ${Htr} м (1.1)`;
                 hiddenFormulaCont = 'hiddenFormulaHtr';
                 formulaCont='formulaHtr';
                 canvasCont='canvasHtr';
-                calculate(formulaHtrResult, hiddenFormulaCont,formulaCont,canvasCont);
+                calculate(formulaResult, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
             if (numFloors && floorHeight) {
                 Hnijt = 2+floorHeight*(numFloors-1);
                 Hnijt = Number(Hnijt.toFixed(1));
-                formulaHnijtResult = `H_{\\text{ниж.т.}} = 2+${floorHeight}*(${numFloors}-1) = ${Hnijt} {\\text{м.вод.столба}}`;
+                let formulaResult = `H_{\\text{ниж.т.}} = 2+${floorHeight}*(${numFloors}-1) = ${Hnijt} {\\text{м.вод.столба}}`;
                 hiddenFormulaCont = 'hiddenFormulaHnijt';
                 formulaCont='formulaHnijt';
                 canvasCont='canvasHnijt';
-                calculate(formulaHnijtResult, hiddenFormulaCont,formulaCont,canvasCont);
+                calculate(formulaResult, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
             if (numSections && numFloors && numApartments && population) {
                 U = parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numApartments) * parseFloat(population);
                 U = Number(U.toFixed(2));
-                let uCalculate = numSections + " * " + numFloors + " * " + numApartments + " * " + population + " = " + U;
+                let uCalculate = numSections + " * " + numFloors + " * " + numApartments + " * " + population + " = " + U + " чел.";
                 allValue('[u-calculate]', uCalculate);
                 U = Math.ceil(U);
                 allValue('[u]', U.toString() + " чел");
@@ -229,6 +234,47 @@ for (let elem = 0; elem < inputs.length; elem++){
                 // allValue('[qb1-calculate]', qb1Calculate);
             }
 
+            if (numSections && numFloors && numApartments && population && numBuildings) {
+                Un = parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numApartments) * parseFloat(population) * parseFloat(numBuildings);
+                Un = Number(Un.toFixed(2));
+                let uNCalculate = numSections + " * " + numFloors + " * " + numApartments + " * " + population + " * " + numBuildings + " = " + Un + " чел.";
+                Un = Math.ceil(Un);
+                allValue('[u-n-calculate]', uNCalculate);
+                allValue('[u-n]', Un.toString() + " .(количество водопотребителей в " + numBuildings + " домах)");
+                allValue('[u-3-n]', Un.toString() + " чел. (количество водопотребителей)");
+
+                qb0n = 180*Un/1000;
+                qb0n = Number(qb0n.toFixed(2)); //to fixed
+                qb1n = 110*Un/1000;
+                qb1n = Number(qb1n.toFixed(2)); //to fixed
+                qT3n = 70*Un/1000;
+                qT3n = Number(qT3n.toFixed(2)); //to fixed
+            }
+
+            if (Un && qb0n) {
+                let formulaText = `q^{\\text{b0}}_{\\text{сут}} = \\frac{q^{\\text{B0}}_{\\text{сут}} * U}{1000} = \\frac{180 * ${Un}}{1000} = ${qb0n} \\frac{\\text{м³}}{\\text{сут}}`;
+                hiddenFormulaCont = 'hiddenFormulaQb0n';
+                formulaCont='formulaQb0n';
+                canvasCont='canvasQb0n';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (Un && qT3n) {
+                let formulaText = `q^{\\text{T3}}_{\\text{сут}} = \\frac{q^{\\text{T3}}_{\\text{сут}} * U}{1000} = \\frac{70 * ${Un}}{1000} = ${qT3n} \\frac{\\text{м³}}{\\text{сут}}`;
+                hiddenFormulaCont = 'hiddenFormulaQT3n';
+                formulaCont='formulaQT3n';
+                canvasCont='canvasQT3n';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
+            if (Un && qb1n) {
+                let formulaText = `q^{\\text{b1}}_{\\text{сут}} = \\frac{q^{\\text{B1}}_{\\text{сут}} * U}{1000} = \\frac{110 * ${Un}}{1000} = ${qb1n} \\frac{\\text{м³}}{\\text{сут}}`;
+                hiddenFormulaCont = 'hiddenFormulaQb1n';
+                formulaCont='formulaQb1n';
+                canvasCont='canvasQb1n';
+                calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+            }
+
             if (U && qb0) {
                 let formulaQb0Text = `q^{\\text{b0}}_{\\text{сут}} = \\frac{q^{\\text{B0}}_{\\text{сут}} * U}{1000} = \\frac{180 * ${U}}{1000} = ${qb0} \\frac{\\text{м³}}{\\text{сут}}`;
                 hiddenFormulaCont = 'hiddenFormulaQb0';
@@ -243,13 +289,13 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasQB0mh';
                 calculate(formulaQB0mhText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                const Qb0mhTableElement = document.getElementById('Qb0mh-table');
-                if (Qb0mhTableElement) Qb0mhTableElement.textContent = qB0mh.toString();
-                allValue('Qb0mh-table', qB0mh);
-
-                const Qb0dTableElement = document.getElementById('Qb0d-table');
-                if (Qb0dTableElement) Qb0dTableElement.textContent = qb0;
-                allValue('Qb0d-table', qb0);
+                // const Qb0mhTableElement = document.getElementById('Qb0mh-table');
+                // if (Qb0mhTableElement) Qb0mhTableElement.textContent = qB0mh.toString();
+                // allValue('Qb0mh-table', qB0mh);
+                //
+                // const Qb0dTableElement = document.getElementById('Qb0d-table');
+                // if (Qb0dTableElement) Qb0dTableElement.textContent = qb0;
+                // allValue('Qb0d-table', qb0);
             }
 
             if(U && qT3) {
@@ -282,31 +328,49 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasQB1mh';
                 calculate(formulaQB1mhText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                const Qb1mhTableElement = document.getElementById('Qb1mh-table');
-                if (Qb1mhTableElement) Qb1mhTableElement.textContent = qB1mh.toString();
-                allValue('Qb1mh-table', qB1mh);
-
-                const Qb1dTableElement = document.getElementById('Qb1d-table');
-                if (Qb1dTableElement) Qb1dTableElement.textContent = qb1;
-                allValue('Qb1d-table', qb1);
+                // const Qb1mhTableElement = document.getElementById('Qb1mh-table');
+                // if (Qb1mhTableElement) Qb1mhTableElement.textContent = qB1mh.toString();
+                // allValue('Qb1mh-table', qB1mh);
+                //
+                // const Qb1dTableElement = document.getElementById('Qb1d-table');
+                // if (Qb1dTableElement) Qb1dTableElement.textContent = qb1;
+                // allValue('Qb1d-table', qb1);
             }
 
-            if (numSections && numFloors && numDevices && numApartments && numBuildings) {
-                Nb0 = parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numDevices) * parseFloat(numApartments) * parseFloat(numBuildings);
+            if (numSections && numFloors && numDevices && numApartments) {
+                Nb0 = parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numDevices) * parseFloat(numApartments);
                 Nb0 = Math.ceil(Nb0)
-                Nb1 = parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numDevices) * parseFloat(numApartments) * parseFloat(numBuildings);
+                Nb1 = parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numDevices) * parseFloat(numApartments);
                 Nb1 = Math.ceil(Nb1)
-                let Nb0Calculate = numSections + " * " + numFloors + " * " + numDevices + " * " + numApartments + " * " + numBuildings + " = " + Nb0;
-                let Nb1Calculate = numSections + " * " + numFloors + " * " + numDevices + " * " + numApartments + " * " + numBuildings + " = " + Nb1;
+                let Nb0Calculate = numSections + " * " + numFloors + " * " + numDevices + " * " + numApartments + " = " + Nb0;
+                let Nb1Calculate = numSections + " * " + numFloors + " * " + numDevices + " * " + numApartments + " = " + Nb1;
                 allValue('[Nb0-calculate]', Nb0Calculate + " шт")
                 allValue('[Nb1-calculate]', Nb1Calculate + " шт")
             }
 
-            if (numSections && numFloors && numDevicesT3 && numApartments && numBuildings) {
-                NT3 = parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numDevicesT3) * parseFloat(numApartments) * parseFloat(numBuildings);
+            if (numSections && numFloors && numDevicesT3 && numApartments) {
+                NT3 = parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numDevicesT3) * parseFloat(numApartments);
                 NT3 = Math.ceil(NT3)
-                let NT3Calculate = numSections + " * " + numFloors + " * " + numDevicesT3 + " * " + numApartments + " * " + numBuildings + " = " + NT3;
+                let NT3Calculate = numSections + " * " + numFloors + " * " + numDevicesT3 + " * " + numApartments + " = " + NT3;
                 allValue('[NT3-calculate]', NT3Calculate + " шт")
+            }
+
+            if (numSections && numFloors && numDevices && numApartments && numBuildings) {
+                Nb0n = parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numDevices) * parseFloat(numApartments) * parseFloat(numBuildings);
+                Nb0n = Math.ceil(Nb0n)
+                Nb1n = parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numDevices) * parseFloat(numApartments) * parseFloat(numBuildings);
+                Nb1n = Math.ceil(Nb1n)
+                let Nb0Calculate = numSections + " * " + numFloors + " * " + numDevices + " * " + numApartments + " * " + numBuildings + " = " + Nb0n;
+                let Nb1Calculate = numSections + " * " + numFloors + " * " + numDevices + " * " + numApartments + " * " + numBuildings + " = " + Nb1n;
+                allValue('[Nb0-n-calculate]', Nb0Calculate + " шт")
+                allValue('[Nb1-n-calculate]', Nb1Calculate + " шт")
+            }
+
+            if (numSections && numFloors && numDevicesT3 && numApartments && numBuildings) {
+                NT3n = parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numDevicesT3) * parseFloat(numApartments) * parseFloat(numBuildings);
+                NT3n = Math.ceil(NT3n)
+                let NT3Calculate = numSections + " * " + numFloors + " * " + numDevicesT3 + " * " + numApartments + " * " + numBuildings + " = " + NT3n;
+                allValue('[NT3-n-calculate]', NT3Calculate + " шт")
             }
 
             if (numBuildings) {
@@ -1220,6 +1284,11 @@ formulaCont='formulaQd2';
 canvasCont='canvasQd2';
 calculate(formulaQdText, hiddenFormulaCont,formulaCont,canvasCont);
 
+hiddenFormulaCont = 'hiddenFormulaQd3';
+formulaCont='formulaQd3';
+canvasCont='canvasQd3';
+calculate(formulaQdText, hiddenFormulaCont,formulaCont,canvasCont);
+
 let formulaQmhText = `q_{\\text{ср час}} = \\frac{q_\\text{сут}}{T}`;
 hiddenFormulaCont = 'hiddenFormulaQmh';
 formulaCont='formulaQmh';
@@ -1248,10 +1317,20 @@ formulaCont='formulaQdB0';
 canvasCont='canvasQdB0';
 calculate(formulaQdB0Text, hiddenFormulaCont,formulaCont,canvasCont);
 
+hiddenFormulaCont = 'hiddenFormulaQdB0c1';
+formulaCont='formulaQdB0c1';
+canvasCont='canvasQdB0c1';
+calculate(formulaQdB0Text, hiddenFormulaCont,formulaCont,canvasCont);
+
 let formulaQdT3Text = `q_{\\text{сут}}^{\\text{T3}} = 70 \\frac{\\text{л}}{\\text{сут}}`;
 hiddenFormulaCont = 'hiddenFormulaQdT3';
 formulaCont='formulaQdT3';
 canvasCont='canvasQdT3';
+calculate(formulaQdT3Text, hiddenFormulaCont,formulaCont,canvasCont);
+
+hiddenFormulaCont = 'hiddenFormulaQdT3c1';
+formulaCont='formulaQdT3c1';
+canvasCont='canvasQdT3c1';
 calculate(formulaQdT3Text, hiddenFormulaCont,formulaCont,canvasCont);
 
 let formulaQdB1Text = `q_{\\text{сут}}^{\\text{B1}} = 110 \\frac{\\text{л}}{\\text{сут}}`;
@@ -1260,29 +1339,10 @@ formulaCont='formulaQdB1';
 canvasCont='canvasQdB1';
 calculate(formulaQdB1Text, hiddenFormulaCont,formulaCont,canvasCont);
 
-// let formulaTableQdText = `q_{\\text{сут.}} \\text{, } \\frac{\\text{м³}}{\\text{сут}}`;
-// hiddenFormulaCont = 'hiddenFormulaTableQd';
-// formulaCont='formulaTableQd';
-// canvasCont='canvasTableQd';
-// calculate(formulaTableQdText, hiddenFormulaCont,formulaCont,canvasCont);
-//
-// let formulaTableQmhText = `q_{\\text{ср. час}} \\text{, } \\frac{\\text{м³}}{\\text{час}}`;
-// hiddenFormulaCont = 'hiddenFormulaTableQmh';
-// formulaCont='formulaTableQmh';
-// canvasCont='canvasTableQmh';
-// calculate(formulaTableQmhText, hiddenFormulaCont,formulaCont,canvasCont);
-//
-// let formulaTableQmaxhText = `q_{\\text{max час}} \\text{, } \\frac{\\text{м³}}{\\text{час}}`;
-// hiddenFormulaCont = 'hiddenFormulaTableQmaxh';
-// formulaCont='formulaTableQmaxh';
-// canvasCont='canvasTableQmaxh';
-// calculate(formulaTableQmaxhText, hiddenFormulaCont,formulaCont,canvasCont);
-//
-// let formulaTableQmaxsText = `q_{\\text{max сек.}} \\text{, } \\frac{\\text{л}}{\\text{сек}}`;
-// hiddenFormulaCont = 'hiddenFormulaTableQmaxs';
-// formulaCont='formulaTableQmaxs';
-// canvasCont='canvasTableQmaxs';
-// calculate(formulaTableQmaxsText, hiddenFormulaCont,formulaCont,canvasCont);
+hiddenFormulaCont = 'hiddenFormulaQdB1c1';
+formulaCont='formulaQdB1c1';
+canvasCont='canvasQdB1c1';
+calculate(formulaQdB1Text, hiddenFormulaCont,formulaCont,canvasCont);
 
 function allValue(item, value) {
     let items = document.querySelectorAll(item);
