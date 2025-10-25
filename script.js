@@ -14,7 +14,9 @@ let nb0Nb1Input;
 let uInput;
 let numDevicesT3;
 let q0GenInput;
+let q0GenHrInput;
 let q0OrInput;
+let q0OrHrInput;
 
 let qdb0Input;
 let qdT3Input;
@@ -217,9 +219,19 @@ for (let elem = 0; elem < inputs.length; elem++){
                 allValue('[data-q0-general]', q0GenInput);
             }
 
+            if (this.hasAttribute('data-q0-general-hr')) {
+                q0GenHrInput = this.value;
+                allValue('[data-q0-general-hr]', q0GenHrInput);
+            }
+
             if (this.hasAttribute('data-q0-or')) {
                 q0OrInput = this.value;
                 allValue('[data-q0-or]', q0OrInput);
+            }
+
+            if (this.hasAttribute('data-q0-or-hr')) {
+                q0OrHrInput = this.value;
+                allValue('[data-q0-or-hr]', q0OrHrInput);
             }
 
             if (numFloors) {
@@ -596,11 +608,11 @@ for (let elem = 0; elem < inputs.length; elem++){
                 qDmaxB1Input = qDmaxB0Input - qDmaxT3Input;
             }
 
-            if (nb0Nb1Input && uInput && qDmaxB0Input) {
-                pSB0Input = qDmaxB0Input * uInput /3600 /nb0Nb1Input /0.3;
+            if (nb0Nb1Input && uInput && qDmaxB0Input && q0GenInput) {
+                pSB0Input = qDmaxB0Input * uInput /3600 /nb0Nb1Input /q0GenInput;
                 pSB0Input = Number(pSB0Input.toFixed(4));
 
-                let formulaText = `\\text{1)} P_{\\text{сек}}^{\\text{BO}} = \\frac{${qDmaxB0Input} * ${uInput}}{3600*${nb0Nb1Input}*0.3} = ${pSB0Input}`;
+                let formulaText = `\\text{1)} P_{\\text{сек}}^{\\text{BO}} = \\frac{${qDmaxB0Input} * ${uInput}}{3600*${nb0Nb1Input} * ${q0GenInput}} = ${pSB0Input}`;
                 hiddenFormulaCont = 'hiddenFormulaPsB0Inp';
                 formulaCont='formulaPsB0Inp';
                 canvasCont='canvasPsB0Inp';
@@ -656,11 +668,11 @@ for (let elem = 0; elem < inputs.length; elem++){
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (nb0Nb1Input && uInput && qDmaxB1Input) {
-                pSB1Input = qDmaxB1Input * uInput /3600 /nb0Nb1Input /0.2;
+            if (nb0Nb1Input && uInput && qDmaxB1Input && q0OrInput) {
+                pSB1Input = qDmaxB1Input * uInput /3600 /nb0Nb1Input /q0OrInput;
                 pSB1Input = Number(pSB1Input.toFixed(4));
 
-                let formulaText = `\\text{3)} P_{\\text{сек}}^{\\text{B1}} = \\frac{${qDmaxB1Input} * ${uInput}}{3600*${nb0Nb1Input}*0.2} = ${pSB1Input}`;
+                let formulaText = `\\text{3)} P_{\\text{сек}}^{\\text{B1}} = \\frac{${qDmaxB1Input} * ${uInput}}{3600*${nb0Nb1Input} * ${q0OrInput}} = ${pSB1Input}`;
                 hiddenFormulaCont = 'hiddenFormulaPsB1Inp';
                 formulaCont='formulaPsB1Inp';
                 canvasCont='canvasPsB1Inp';
