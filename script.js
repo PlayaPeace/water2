@@ -1267,27 +1267,27 @@ for (let elem = 0; elem < inputs.length; elem++){
                 if (NP4Element) NP4Element.textContent = NP4;
             }
 
-            if (nb0Nb1Input && Nb0 && Psb0 && pSB0Input) {
-                let q0sB0 = (Nb0*Psb0*0.3 + nb0Nb1Input*pSB0Input*0.3)/(Nb0*Psb0 + nb0Nb1Input*pSB0Input);
+            if (nb0Nb1Input && Nb0n && Psb0 && pSB0Input) {
+                let q0sB0 = (Nb0n*Psb0*0.3 + nb0Nb1Input*pSB0Input*0.3)/(Nb0n*Psb0 + nb0Nb1Input*pSB0Input);
                 q0sB0 = Number(q0sB0.toFixed(2));
-                let formulaText = `q_0^{\\text{B0}} = \\frac{${Nb0}*${Psb0}*0.3 + ${nb0Nb1Input}*${pSB0Input}*0.3}{${Nb0}*${Psb0} + ${nb0Nb1Input}*${pSB0Input}} = ${q0sB0}`;
+                let formulaText = `q_0^{\\text{B0}} = \\frac{${Nb0n}*${Psb0}*0.3 + ${nb0Nb1Input}*${pSB0Input}*0.3}{${Nb0n}*${Psb0} + ${nb0Nb1Input}*${pSB0Input}} = ${q0sB0}`;
                 hiddenFormulaCont = 'hiddenFormulaQsB0Sum';
                 formulaCont='formulaQsB0Sum';
                 canvasCont='canvasQsB0Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                pSB0 = (Nb0*Psb0 + nb0Nb1Input*pSB0Input)/(Nb0 + nb0Nb1Input);
+                pSB0 = (Nb0n*Psb0 + nb0Nb1Input*pSB0Input)/(Nb0n + nb0Nb1Input);
                 pSB0 = Number(pSB0.toFixed(4));
-                formulaText = `P_{\\text{сек}}^{\\text{B0}} = \\frac{${Nb0}*${Psb0} + ${nb0Nb1Input}*${pSB0Input}}{${Nb0} + ${nb0Nb1Input}} = ${pSB0}`;
+                formulaText = `P_{\\text{сек}}^{\\text{B0}} = \\frac{${Nb0n}*${Psb0} + ${nb0Nb1Input}*${pSB0Input}}{${Nb0n} + ${nb0Nb1Input}} = ${pSB0}`;
                 hiddenFormulaCont = 'hiddenFormulaPsB0Sum';
                 formulaCont='formulaPsB0Sum';
                 canvasCont='canvasPsB0Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (pSB0 && Nb0 && nb0Nb1Input) {
-                ANP7 = Number(((Number(Nb0)+Number(nb0Nb1Input)) * pSB0).toFixed(3));
-                let sumN = Number(Nb0)+Number(nb0Nb1Input);
+            if (pSB0 && Nb0n && nb0Nb1Input) {
+                ANP7 = Number(((Number(Nb0n)+Number(nb0Nb1Input)) * pSB0).toFixed(3));
+                let sumN = Number(Nb0n)+Number(nb0Nb1Input);
                 let a = findAlphaByNP(ANP7);
                 a = Number(a.toFixed(3));
                 let formulaText = `\\text{α(N}\\text{P}_с\\text{)} = α(${sumN} * ${pSB0}) = α(${ANP7}) = ${a}`;
@@ -1304,27 +1304,27 @@ for (let elem = 0; elem < inputs.length; elem++){
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (nT3Input && NT3 && PsT3 && pST3Input) {
-                let q0sT3 = (NT3*PsT3*0.2 + nT3Input*pST3Input*0.2)/(NT3*PsT3 + nT3Input*pST3Input);
+            if (nT3Input && NT3n && PsT3 && pST3Input) {
+                let q0sT3 = (NT3n*PsT3*0.2 + nT3Input*pST3Input*0.2)/(NT3n*PsT3 + nT3Input*pST3Input);
                 q0sT3 = Number(q0sT3.toFixed(2));
-                let formulaText = `q_0^{\\text{T3}} = \\frac{${NT3}*${PsT3}*0.2 + ${nT3Input}*${pST3Input}*0.2}{${NT3}*${PsT3} + ${nT3Input}*${pST3Input}} = ${q0sT3}`;
+                let formulaText = `q_0^{\\text{T3}} = \\frac{${NT3n}*${PsT3}*0.2 + ${nT3Input}*${pST3Input}*0.2}{${NT3n}*${PsT3} + ${nT3Input}*${pST3Input}} = ${q0sT3}`;
                 hiddenFormulaCont = 'hiddenFormulaQsT3Sum';
                 formulaCont='formulaQsT3Sum';
                 canvasCont='canvasQsT3Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                pST3 = (NT3*PsT3 + nT3Input*pST3Input)/(NT3 + nT3Input);
+                pST3 = (NT3n*PsT3 + nT3Input*pST3Input)/(NT3n + nT3Input);
                 pST3 = Number(pST3.toFixed(4));
-                formulaText = `P_{\\text{сек}}^{\\text{T3}} = \\frac{${NT3}*${PsT3} + ${nT3Input}*${pST3Input}}{${NT3} + ${nT3Input}} = ${pST3}`;
+                formulaText = `P_{\\text{сек}}^{\\text{T3}} = \\frac{${NT3n}*${PsT3} + ${nT3Input}*${pST3Input}}{${NT3n} + ${nT3Input}} = ${pST3}`;
                 hiddenFormulaCont = 'hiddenFormulaPsT3Sum';
                 formulaCont='formulaPsT3Sum';
                 canvasCont='canvasPsT3Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (pST3 && NT3 && nT3Input) {
-                ANP8 = Number(((Number(NT3)+Number(nT3Input)) * pST3).toFixed(3));
-                let sumN = Number(NT3)+Number(nT3Input);
+            if (pST3 && NT3n && nT3Input) {
+                ANP8 = Number(((Number(NT3n)+Number(nT3Input)) * pST3).toFixed(3));
+                let sumN = Number(NT3n)+Number(nT3Input);
                 let a = findAlphaByNP(ANP8);
                 a = Number(a.toFixed(3));
                 let formulaText = `\\text{α(N}\\text{P}_с\\text{)} = α(${sumN} * ${pST3}) = α(${ANP8}) = ${a}`;
@@ -1341,27 +1341,27 @@ for (let elem = 0; elem < inputs.length; elem++){
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (nb0Nb1Input && Nb1 && Psb1 && pSB1Input) {
-                let q0sB1 = (Nb1*Psb1*0.2 + nb0Nb1Input*pSB1Input*0.2)/(Nb1*Psb1 + nb0Nb1Input*pSB1Input);
+            if (nb0Nb1Input && Nb1n && Psb1 && pSB1Input) {
+                let q0sB1 = (Nb1n*Psb1*0.2 + nb0Nb1Input*pSB1Input*0.2)/(Nb1n*Psb1 + nb0Nb1Input*pSB1Input);
                 q0sB1 = Number(q0sB1.toFixed(2));
-                let formulaText = `q_0^{\\text{B1}} = \\frac{${Nb1}*${Psb1}*0.2 + ${nb0Nb1Input}*${pSB1Input}*0.2}{${Nb1}*${Psb1} + ${nb0Nb1Input}*${pSB1Input}} = ${q0sB1}`;
+                let formulaText = `q_0^{\\text{B1}} = \\frac{${Nb1n}*${Psb1}*0.2 + ${nb0Nb1Input}*${pSB1Input}*0.2}{${Nb1n}*${Psb1} + ${nb0Nb1Input}*${pSB1Input}} = ${q0sB1}`;
                 hiddenFormulaCont = 'hiddenFormulaQsB1Sum';
                 formulaCont='formulaQsB1Sum';
                 canvasCont='canvasQsB1Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                pSB1 = (Nb1*Psb1 + nb0Nb1Input*pSB1Input)/(Nb1 + nb0Nb1Input);
+                pSB1 = (Nb1n*Psb1 + nb0Nb1Input*pSB1Input)/(Nb1n + nb0Nb1Input);
                 pSB1 = Number(pSB1.toFixed(4));
-                formulaText = `P_{\\text{сек}}^{\\text{B1}} = \\frac{${Nb1}*${Psb1} + ${nb0Nb1Input}*${pSB1Input}}{${Nb1} + ${nb0Nb1Input}} = ${pSB1}`;
+                formulaText = `P_{\\text{сек}}^{\\text{B1}} = \\frac{${Nb1n}*${Psb1} + ${nb0Nb1Input}*${pSB1Input}}{${Nb1n} + ${nb0Nb1Input}} = ${pSB1}`;
                 hiddenFormulaCont = 'hiddenFormulaPsB1Sum';
                 formulaCont='formulaPsB1Sum';
                 canvasCont='canvasPsB1Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (pSB1 && Nb1 && nb0Nb1Input) {
-                ANP9 = Number(((Number(Nb1)+(nb0Nb1Input)) * pSB1).toFixed(3));
-                let sumN = Number(Nb1)+Number(nb0Nb1Input);
+            if (pSB1 && Nb1n && nb0Nb1Input) {
+                ANP9 = Number(((Number(Nb1n)+(nb0Nb1Input)) * pSB1).toFixed(3));
+                let sumN = Number(Nb1n)+Number(nb0Nb1Input);
                 let a = findAlphaByNP(ANP9);
                 a = Number(a.toFixed(3));
                 let formulaText = `\\text{α(N}\\text{P}_с\\text{)} = α(${sumN} * ${pSB1}) = α(${ANP9}) = ${a}`;
@@ -1378,27 +1378,27 @@ for (let elem = 0; elem < inputs.length; elem++){
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (nb0Nb1Input && Nb0 && Phb0 && pHB0Input) {
-                let q0hB0 = (Nb0*Phb0*300 + nb0Nb1Input*pHB0Input*300)/(Nb0*Phb0 + nb0Nb1Input*pHB0Input);
+            if (nb0Nb1Input && Nb0n && Phb0 && pHB0Input) {
+                let q0hB0 = (Nb0n*Phb0*300 + nb0Nb1Input*pHB0Input*300)/(Nb0n*Phb0 + nb0Nb1Input*pHB0Input);
                 q0hB0 = Number(q0hB0.toFixed(2));
-                let formulaText = `q_0^{\\text{B0}} = \\frac{${Nb0}*${Psb0}*300 + ${nb0Nb1Input}*${pSB0Input}*300}{${Nb0}*${Psb0} + ${nb0Nb1Input}*${pSB0Input}} = ${q0hB0}`;
+                let formulaText = `q_0^{\\text{B0}} = \\frac{${Nb0n}*${Psb0}*300 + ${nb0Nb1Input}*${pSB0Input}*300}{${Nb0n}*${Psb0} + ${nb0Nb1Input}*${pSB0Input}} = ${q0hB0}`;
                 hiddenFormulaCont = 'hiddenFormulaQhB0Sum';
                 formulaCont='formulaQhB0Sum';
                 canvasCont='canvasQhB0Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                pHB0 = (Nb0*Phb0 + nb0Nb1Input*pHB0Input)/(Nb0 + nb0Nb1Input);
+                pHB0 = (Nb0n*Phb0 + nb0Nb1Input*pHB0Input)/(Nb0n + nb0Nb1Input);
                 pHB0 = Number(pHB0.toFixed(4));
-                formulaText = `P_{\\text{ч}}^{\\text{B0}} = \\frac{${Nb0}*${Phb0} + ${nb0Nb1Input}*${pHB0Input}}{${Nb0} + ${nb0Nb1Input}} = ${pHB0}`;
+                formulaText = `P_{\\text{ч}}^{\\text{B0}} = \\frac{${Nb0n}*${Phb0} + ${nb0Nb1Input}*${pHB0Input}}{${Nb0n} + ${nb0Nb1Input}} = ${pHB0}`;
                 hiddenFormulaCont = 'hiddenFormulaPhB0Sum';
                 formulaCont='formulaPhB0Sum';
                 canvasCont='canvasPhB0Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (pHB0 && Nb0 && nb0Nb1Input) {
-                ANP10 = Number(((Number(Nb0)+Number(nb0Nb1Input)) * pHB0).toFixed(3));
-                let sumN = Number(Nb0)+Number(nb0Nb1Input);
+            if (pHB0 && Nb0n && nb0Nb1Input) {
+                ANP10 = Number(((Number(Nb0n)+Number(nb0Nb1Input)) * pHB0).toFixed(3));
+                let sumN = Number(Nb0n)+Number(nb0Nb1Input);
                 let a = findAlphaByNP(ANP10);
                 a = Number(a.toFixed(3));
                 let formulaText = `\\text{α(N}\\text{P}_ч\\text{)} = α(${sumN} * ${pHB0}) = α(${ANP10}) = ${a}`;
@@ -1415,27 +1415,27 @@ for (let elem = 0; elem < inputs.length; elem++){
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (nT3Input && NT3 && PhT3 && pHT3Input) {
-                let q0hT3 = (NT3*PhT3*200 + nT3Input*pHT3Input*200)/(NT3*PhT3 + nT3Input*pHT3Input);
+            if (nT3Input && NT3n && PhT3 && pHT3Input) {
+                let q0hT3 = (NT3n*PhT3*200 + nT3Input*pHT3Input*200)/(NT3n*PhT3 + nT3Input*pHT3Input);
                 q0hT3 = Number(q0hT3.toFixed(2));
-                let formulaText = `q_0^{\\text{T3}} = \\frac{${NT3}*${PsT3}*200 + ${nT3Input}*${pST3Input}*200}{${NT3}*${PsT3} + ${nT3Input}*${pST3Input}} = ${q0hT3}`;
+                let formulaText = `q_0^{\\text{T3}} = \\frac{${NT3n}*${PsT3}*200 + ${nT3Input}*${pST3Input}*200}{${NT3n}*${PsT3} + ${nT3Input}*${pST3Input}} = ${q0hT3}`;
                 hiddenFormulaCont = 'hiddenFormulaQhT3Sum';
                 formulaCont='formulaQhT3Sum';
                 canvasCont='canvasQhT3Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                pHT3 = (NT3*PhT3 + nT3Input*pHT3Input)/(NT3 + nT3Input);
+                pHT3 = (NT3n*PhT3 + nT3Input*pHT3Input)/(NT3n + nT3Input);
                 pHT3 = Number(pHT3.toFixed(4));
-                formulaText = `P_{\\text{ч}}^{\\text{T3}} = \\frac{${NT3}*${PhT3} + ${nT3Input}*${pHT3Input}}{${NT3} + ${nT3Input}} = ${pHT3}`;
+                formulaText = `P_{\\text{ч}}^{\\text{T3}} = \\frac{${NT3n}*${PhT3} + ${nT3Input}*${pHT3Input}}{${NT3n} + ${nT3Input}} = ${pHT3}`;
                 hiddenFormulaCont = 'hiddenFormulaPhT3Sum';
                 formulaCont='formulaPhT3Sum';
                 canvasCont='canvasPhT3Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (pHT3 && NT3 && nT3Input) {
-                ANP11 = Number(((Number(NT3)+(Number(nT3Input))) * pHT3).toFixed(3));
-                let sumN = Number(NT3)+Number(nT3Input);
+            if (pHT3 && NT3n && nT3Input) {
+                ANP11 = Number(((Number(NT3n)+(Number(nT3Input))) * pHT3).toFixed(3));
+                let sumN = Number(NT3n)+Number(nT3Input);
                 let a = findAlphaByNP(ANP11);
                 a = Number(a.toFixed(3));
                 let formulaText = `\\text{α(N}\\text{P}_ч\\text{)} = α(${sumN} * ${pHT3}) = α(${ANP11}) = ${a}`;
@@ -1452,27 +1452,27 @@ for (let elem = 0; elem < inputs.length; elem++){
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (nb0Nb1Input && Nb1 && Phb1 && pHB1Input) {
-                let q0hB1 = (Nb1*Phb1*200 + nb0Nb1Input*pHB1Input*200)/(Nb1*Phb1 + nb0Nb1Input*pHB1Input);
+            if (nb0Nb1Input && Nb1n && Phb1 && pHB1Input) {
+                let q0hB1 = (Nb1n*Phb1*200 + nb0Nb1Input*pHB1Input*200)/(Nb1n*Phb1 + nb0Nb1Input*pHB1Input);
                 q0hB1 = Number(q0hB1.toFixed(2));
-                let formulaText = `q_0^{\\text{B1}} = \\frac{${Nb1}*${Psb1}*200 + ${nb0Nb1Input}*${pSB1Input}*200}{${Nb1}*${Psb1} + ${nb0Nb1Input}*${pSB1Input}} = ${q0hB1}`;
+                let formulaText = `q_0^{\\text{B1}} = \\frac{${Nb1n}*${Psb1}*200 + ${nb0Nb1Input}*${pSB1Input}*200}{${Nb1n}*${Psb1} + ${nb0Nb1Input}*${pSB1Input}} = ${q0hB1}`;
                 hiddenFormulaCont = 'hiddenFormulaQhB1Sum';
                 formulaCont='formulaQhB1Sum';
                 canvasCont='canvasQhB1Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                pHB1 = (Nb1*Phb1 + nb0Nb1Input*pHB1Input)/(Nb1 + nb0Nb1Input);
+                pHB1 = (Nb1n*Phb1 + nb0Nb1Input*pHB1Input)/(Nb1n + nb0Nb1Input);
                 pHB1 = Number(pHB1.toFixed(4));
-                formulaText = `P_{\\text{ч}}^{\\text{B1}} = \\frac{${Nb1}*${Phb1} + ${nb0Nb1Input}*${pHB1Input}}{${Nb1} + ${nb0Nb1Input}} = ${pHB1}`;
+                formulaText = `P_{\\text{ч}}^{\\text{B1}} = \\frac{${Nb1n}*${Phb1} + ${nb0Nb1Input}*${pHB1Input}}{${Nb1n} + ${nb0Nb1Input}} = ${pHB1}`;
                 hiddenFormulaCont = 'hiddenFormulaPhB1Sum';
                 formulaCont='formulaPhB1Sum';
                 canvasCont='canvasPhB1Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (pHB1 && Nb1 && nb0Nb1Input) {
-                ANP12 = Number(((Number(Nb1)+Number(nb0Nb1Input)) * pHB1).toFixed(3));
-                let sumN = Number(Nb1)+Number(nb0Nb1Input);
+            if (pHB1 && Nb1n && nb0Nb1Input) {
+                ANP12 = Number(((Number(Nb1n)+Number(nb0Nb1Input)) * pHB1).toFixed(3));
+                let sumN = Number(Nb1n)+Number(nb0Nb1Input);
                 let a = findAlphaByNP(ANP12);
                 a = Number(a.toFixed(3));
                 let formulaText = `\\text{α(N}\\text{P}_ч\\text{)} = α(${sumN} * ${pHB1}) = α(${ANP12}) = ${a}`;
