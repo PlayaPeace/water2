@@ -587,8 +587,8 @@ for (let elem = 0; elem < inputs.length; elem++){
                 if (Qb1mhTableElement) Qb1mhTableElement.textContent = sumQMhB1.toString();
             }
 
-            if (nb0Nb1Input && numDevicesT3) {
-                let text = "Число водозаборных точек: N<sup>В0</sup> = " + nb0Nb1Input + " шт., N<sup>Т3</sup> = " + numDevicesT3 + " шт., N<sup>В1</sup> = " + nb0Nb1Input + " шт.";
+            if (nb0Nb1Input && nT3Input) {
+                let text = "Число водозаборных точек: N<sup>В0</sup> = " + nb0Nb1Input + " шт., N<sup>Т3</sup> = " + nT3Input + " шт., N<sup>В1</sup> = " + nb0Nb1Input + " шт.";
                 const element = document.getElementById('nb0nb1nt3-input-text');
                 if (element) element.innerHTML = text;
             }
