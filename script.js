@@ -645,11 +645,11 @@ for (let elem = 0; elem < inputs.length; elem++){
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (numDevicesT3 && uInput && qDmaxT3Input && q0OrInput) {
-                pST3Input = qDmaxT3Input * uInput /3600 /numDevicesT3 /q0OrInput;
+            if (nT3Input && uInput && qDmaxT3Input && q0OrInput) {
+                pST3Input = qDmaxT3Input * uInput /3600 /nT3Input /q0OrInput;
                 pST3Input = Number(pST3Input.toFixed(4));
 
-                let formulaText = `\\text{2)} P_{\\text{сек}}^{\\text{T3}} = \\frac{${qDmaxT3Input} * ${uInput}}{3600*${numDevicesT3} * ${q0OrInput}} = ${pST3Input}`;
+                let formulaText = `\\text{2)} P_{\\text{сек}}^{\\text{T3}} = \\frac{${qDmaxT3Input} * ${uInput}}{3600*${nT3Input} * ${q0OrInput}} = ${pST3Input}`;
                 hiddenFormulaCont = 'hiddenFormulaPsT3Inp';
                 formulaCont='formulaPsT3Inp';
                 canvasCont='canvasPsT3Inp';
