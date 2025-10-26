@@ -489,7 +489,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 if (element) element.textContent = text;
 
                 text = "Таблица А.2 «Расчётные расходы для " + typeOfBuilding + "»";
-                element = document.getElementById('3.10-title-text');
+                element = document.getElementById('a3-table-title-text');
                 if (element) element.textContent = text;
             }
 
@@ -605,6 +605,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQdB0InputCalculate';
                 canvasCont='canvasQdB0InputCalculate';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1dTableElement = document.getElementById('Qb0dnI-table');
+                if (Qb1dTableElement) Qb1dTableElement.textContent = qdb0InputCal;
             }
 
             if (qdT3Input && uInput) {
@@ -616,6 +619,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQdT3InputCalculate';
                 canvasCont='canvasQdT3InputCalculate';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1dTableElement = document.getElementById('QT3dnI-table');
+                if (Qb1dTableElement) Qb1dTableElement.textContent = qdT3Input;
             }
 
             if (qdb1Input && uInput) {
@@ -627,6 +633,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQdB1InputCalculate';
                 canvasCont='canvasQdB1InputCalculate';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1dTableElement = document.getElementById('Qb1dnI-table');
+                if (Qb1dTableElement) Qb1dTableElement.textContent = qdb1InputCal;
             }
 
             if (qdb0InputCal) {
@@ -638,6 +647,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQmhB0Input';
                 canvasCont='canvasQmhB0Input';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1dTableElement = document.getElementById('Qb0mhnI-table');
+                if (Qb1dTableElement) Qb1dTableElement.textContent = qmhb0Input;
             }
 
             if (qdT3InputCal) {
@@ -649,6 +661,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQmhT3Input';
                 canvasCont='canvasQmhT3Input';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1dTableElement = document.getElementById('QT3mhnI-table');
+                if (Qb1dTableElement) Qb1dTableElement.textContent = qmhT3Input;
             }
 
             if (qdb1InputCal) {
@@ -660,6 +675,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQmhB1Input';
                 canvasCont='canvasQmhB1Input';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1dTableElement = document.getElementById('Qb1mhnI-table');
+                if (Qb1dTableElement) Qb1dTableElement.textContent = qmhb1Input;
             }
 
             if (qDmaxB0Input && qDmaxT3Input) {
@@ -695,6 +713,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQsB0Inp';
                 canvasCont='canvasQsB0Inp';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1dTableElement = document.getElementById('Qb0maxsnI-table');
+                if (Qb1dTableElement) Qb1dTableElement.textContent = qSB0Input;
             }
 
             if (nT3Input && uInput && qDmaxT3Input && q0OrInput) {
@@ -726,6 +747,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQsT3Inp';
                 canvasCont='canvasQsT3Inp';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1dTableElement = document.getElementById('QT3maxsnI-table');
+                if (Qb1dTableElement) Qb1dTableElement.textContent = qST3Input;
             }
 
             if (nb0Nb1Input && uInput && qDmaxB1Input && q0OrInput) {
@@ -756,6 +780,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQsB1Inp';
                 canvasCont='canvasQsB1Inp';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1dTableElement = document.getElementById('Qb1maxsnI-table');
+                if (Qb1dTableElement) Qb1dTableElement.textContent = qSB1Input;
             }
 
             if (pSB0Input && q0GenInput && q0GenHrInput) {
@@ -786,6 +813,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQhB0Inp';
                 canvasCont='canvasQhB0Inp';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1dTableElement = document.getElementById('Qb0maxhnI-table');
+                if (Qb1dTableElement) Qb1dTableElement.textContent = qHB0Input;
             }
 
             if (pST3Input && q0OrInput && q0OrHrInput) {
@@ -816,6 +846,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQhT3Inp';
                 canvasCont='canvasQhT3Inp';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1dTableElement = document.getElementById('QT3maxhnI-table');
+                if (Qb1dTableElement) Qb1dTableElement.textContent = qHT3Input;
             }
 
             if (pSB1Input && q0OrInput && q0OrHrInput) {
@@ -846,6 +879,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQhB1Inp';
                 canvasCont='canvasQhB1Inp';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1dTableElement = document.getElementById('Qb1maxhnI-table');
+                if (Qb1dTableElement) Qb1dTableElement.textContent = qHB1Input;
             }
 
             if (Un && Nb0n) {
@@ -1687,11 +1723,11 @@ formulaCont='formulaTableQd2';
 canvasCont='canvasTableQd2';
 calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
 
-// hiddenFormulaCont = 'hiddenFormulaTableQd3';
-// formulaCont='formulaTableQd3';
-// canvasCont='canvasTableQd3';
-// calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
-//
+hiddenFormulaCont = 'hiddenFormulaTableQd3';
+formulaCont='formulaTableQd3';
+canvasCont='canvasTableQd3';
+calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
+
 // hiddenFormulaCont = 'hiddenFormulaTableQd4';
 // formulaCont='formulaTableQd4';
 // canvasCont='canvasTableQd4';
@@ -1708,11 +1744,11 @@ formulaCont='formulaTableQmh2';
 canvasCont='canvasTableQmh2';
 calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
 
-// hiddenFormulaCont = 'hiddenFormulaTableQmh3';
-// formulaCont='formulaTableQmh3';
-// canvasCont='canvasTableQmh3';
-// calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
-//
+hiddenFormulaCont = 'hiddenFormulaTableQmh3';
+formulaCont='formulaTableQmh3';
+canvasCont='canvasTableQmh3';
+calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
+
 // hiddenFormulaCont = 'hiddenFormulaTableQmh4';
 // formulaCont='formulaTableQmh4';
 // canvasCont='canvasTableQmh4';
@@ -1729,11 +1765,11 @@ formulaCont='formulaTableQmaxh2';
 canvasCont='canvasTableQmaxh2';
 calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
 
-// hiddenFormulaCont = 'hiddenFormulaTableQmaxh3';
-// formulaCont='formulaTableQmaxh3';
-// canvasCont='canvasTableQmaxh3';
-// calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
-//
+hiddenFormulaCont = 'hiddenFormulaTableQmaxh3';
+formulaCont='formulaTableQmaxh3';
+canvasCont='canvasTableQmaxh3';
+calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
+
 // hiddenFormulaCont = 'hiddenFormulaTableQmaxh4';
 // formulaCont='formulaTableQmaxh4';
 // canvasCont='canvasTableQmaxh4';
@@ -1750,11 +1786,11 @@ formulaCont='formulaTableQmaxs2';
 canvasCont='canvasTableQmaxs2';
 calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
 
-// hiddenFormulaCont = 'hiddenFormulaTableQmaxs3';
-// formulaCont='formulaTableQmaxs3';
-// canvasCont='canvasTableQmaxs3';
-// calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
-//
+hiddenFormulaCont = 'hiddenFormulaTableQmaxs3';
+formulaCont='formulaTableQmaxs3';
+canvasCont='canvasTableQmaxs3';
+calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
+
 // hiddenFormulaCont = 'hiddenFormulaTableQmaxs4';
 // formulaCont='formulaTableQmaxs4';
 // canvasCont='canvasTableQmaxs4';
