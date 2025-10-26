@@ -448,63 +448,60 @@ for (let elem = 0; elem < inputs.length; elem++){
                 if (element) element.textContent = text;
             }
 
-            if (qdb0InputCal && qb0) {
-                let sumQDB0 = qdb0InputCal + qb0;
+            if (qdb0InputCal && qb0n) {
+                let sumQDB0 = qdb0InputCal + qb0n;
                 sumQDB0 = Number(sumQDB0.toFixed(4));
-                // let text = "" + qdb0InputCal + " + " + qb0 + " = " + sumQDB0 ;
-                // let element = document.getElementById('u-input-text');
-                // if (element) element.textContent = text;
-                let formulaText = `q^{\\text{B0}}_{сут} = \\sum q^{\\text{i}}_{B0} = ${qdb0InputCal} + ${qb0} = ${sumQDB0} \\frac{\\text{м³}}{\\text{сут}}`;
+                let formulaText = `q^{\\text{B0}}_{сут} = \\sum q^{\\text{i}}_{B0} = ${qb0n} + ${qdb0InputCal} = ${sumQDB0} \\frac{\\text{м³}}{\\text{сут}}`;
                 hiddenFormulaCont = 'hiddenFormulaSumQDB0';
                 formulaCont='formulaSumQDB0';
                 canvasCont='canvasSumQDB0';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (qdT3InputCal && qT3) {
-                let sumQDT3 = qdT3InputCal + qT3;
+            if (qdT3InputCal && qT3n) {
+                let sumQDT3 = qdT3InputCal + qT3n;
                 sumQDT3 = Number(sumQDT3.toFixed(4));
-                let formulaText = `q^{\\text{T3}}_{сут} = \\sum q^{\\text{i}}_{T3} = ${qdT3InputCal} + ${qT3} = ${sumQDT3} \\frac{\\text{м³}}{\\text{сут}}`;
+                let formulaText = `q^{\\text{T3}}_{сут} = \\sum q^{\\text{i}}_{T3} = ${qT3n} + ${qdT3InputCal} = ${sumQDT3} \\frac{\\text{м³}}{\\text{сут}}`;
                 hiddenFormulaCont = 'hiddenFormulaSumQDT3';
                 formulaCont='formulaSumQDT3';
                 canvasCont='canvasSumQDT3';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (qdb1InputCal && qb1) {
-                let sumQDB1 = qdb1InputCal + qb1;
+            if (qdb1InputCal && qb1n) {
+                let sumQDB1 = qdb1InputCal + qb1n;
                 sumQDB1 = Number(sumQDB1.toFixed(4));
-                let formulaText = `q^{\\text{B1}}_{сут} = \\sum q^{\\text{i}}_{B1} = ${qdb1InputCal} + ${qb1} = ${sumQDB1} \\frac{\\text{м³}}{\\text{сут}}`;
+                let formulaText = `q^{\\text{B1}}_{сут} = \\sum q^{\\text{i}}_{B1} = ${qb1n} + ${qdb1InputCal} = ${sumQDB1} \\frac{\\text{м³}}{\\text{сут}}`;
                 hiddenFormulaCont = 'hiddenFormulaSumQDB1';
                 formulaCont='formulaSumQDB1';
                 canvasCont='canvasSumQDB1';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (qB0mh && qmhb0Input) {
-                let sumQMhB0 = qB0mh + qmhb0Input;
+            if (qB0mhn && qmhb0Input) {
+                let sumQMhB0 = qB0mhn + qmhb0Input;
                 sumQMhB0 = Number(sumQMhB0.toFixed(4));
-                let formulaText = `q^{\\text{B0}}_{ср.час} = \\sum q^{\\text{i}}_{B0} = ${qB0mh} + ${qmhb0Input} = ${sumQMhB0} \\frac{\\text{м³}}{\\text{час}}`;
+                let formulaText = `q^{\\text{B0}}_{ср.час} = \\sum q^{\\text{i}}_{B0} = ${qB0mhn} + ${qmhb0Input} = ${sumQMhB0} \\frac{\\text{м³}}{\\text{час}}`;
                 hiddenFormulaCont = 'hiddenFormulaSumQMhB0';
                 formulaCont='formulaSumQMhB0';
                 canvasCont='canvasSumQMhB0';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (qT3mh && qmhT3Input) {
-                let sumQMhT3 = qT3mh + qmhT3Input;
+            if (qT3mhn && qmhT3Input) {
+                let sumQMhT3 = qT3mhn + qmhT3Input;
                 sumQMhT3 = Number(sumQMhT3.toFixed(4));
-                let formulaText = `q^{\\text{T3}}_{ср.час} = \\sum q^{\\text{i}}_{T3} = ${qT3mh} + ${qmhT3Input} = ${sumQMhT3} \\frac{\\text{м³}}{\\text{час}}`;
+                let formulaText = `q^{\\text{T3}}_{ср.час} = \\sum q^{\\text{i}}_{T3} = ${qT3mhn} + ${qmhT3Input} = ${sumQMhT3} \\frac{\\text{м³}}{\\text{час}}`;
                 hiddenFormulaCont = 'hiddenFormulaSumQMhT3';
                 formulaCont='formulaSumQMhT3';
                 canvasCont='canvasSumQMhT3';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
             }
 
-            if (qB1mh && qmhb1Input) {
-                let sumQMhB1 = qB1mh + qmhb1Input;
+            if (qB1mhn && qmhb1Input) {
+                let sumQMhB1 = qB1mhn + qmhb1Input;
                 sumQMhB1 = Number(sumQMhB1.toFixed(4));
-                let formulaText = `q^{\\text{B1}}_{ср.час} = \\sum q^{\\text{i}}_{B1} = ${qB1mh} + ${qmhb1Input} = ${sumQMhB1} \\frac{\\text{м³}}{\\text{час}}`;
+                let formulaText = `q^{\\text{B1}}_{ср.час} = \\sum q^{\\text{i}}_{B1} = ${qB1mhn} + ${qmhb1Input} = ${sumQMhB1} \\frac{\\text{м³}}{\\text{час}}`;
                 hiddenFormulaCont = 'hiddenFormulaSumQMhB1';
                 formulaCont='formulaSumQMhB1';
                 canvasCont='canvasSumQMhB1';
@@ -1381,7 +1378,7 @@ for (let elem = 0; elem < inputs.length; elem++){
             if (nb0Nb1Input && Nb0n && Phb0 && pHB0Input) {
                 let q0hB0 = (Nb0n*Phb0*300 + nb0Nb1Input*pHB0Input*300)/(Nb0n*Phb0 + nb0Nb1Input*pHB0Input);
                 q0hB0 = Number(q0hB0.toFixed(2));
-                let formulaText = `q_0^{\\text{B0}} = \\frac{${Nb0n}*${Psb0}*300 + ${nb0Nb1Input}*${pSB0Input}*300}{${Nb0n}*${Psb0} + ${nb0Nb1Input}*${pSB0Input}} = ${q0hB0}`;
+                let formulaText = `q_0^{\\text{B0}} = \\frac{${Nb0n}*${Phb0}*300 + ${nb0Nb1Input}*${pHB0Input}*300}{${Nb0n}*${Phb0} + ${nb0Nb1Input}*${pHB0Input}} = ${q0hB0}`;
                 hiddenFormulaCont = 'hiddenFormulaQhB0Sum';
                 formulaCont='formulaQhB0Sum';
                 canvasCont='canvasQhB0Sum';
@@ -1418,7 +1415,7 @@ for (let elem = 0; elem < inputs.length; elem++){
             if (nT3Input && NT3n && PhT3 && pHT3Input) {
                 let q0hT3 = (NT3n*PhT3*200 + nT3Input*pHT3Input*200)/(NT3n*PhT3 + nT3Input*pHT3Input);
                 q0hT3 = Number(q0hT3.toFixed(2));
-                let formulaText = `q_0^{\\text{T3}} = \\frac{${NT3n}*${PsT3}*200 + ${nT3Input}*${pST3Input}*200}{${NT3n}*${PsT3} + ${nT3Input}*${pST3Input}} = ${q0hT3}`;
+                let formulaText = `q_0^{\\text{T3}} = \\frac{${NT3n}*${PhT3}*200 + ${nT3Input}*${pHT3Input}*200}{${NT3n}*${PhT3} + ${nT3Input}*${pHT3Input}} = ${q0hT3}`;
                 hiddenFormulaCont = 'hiddenFormulaQhT3Sum';
                 formulaCont='formulaQhT3Sum';
                 canvasCont='canvasQhT3Sum';
@@ -1455,7 +1452,7 @@ for (let elem = 0; elem < inputs.length; elem++){
             if (nb0Nb1Input && Nb1n && Phb1 && pHB1Input) {
                 let q0hB1 = (Nb1n*Phb1*200 + nb0Nb1Input*pHB1Input*200)/(Nb1n*Phb1 + nb0Nb1Input*pHB1Input);
                 q0hB1 = Number(q0hB1.toFixed(2));
-                let formulaText = `q_0^{\\text{B1}} = \\frac{${Nb1n}*${Psb1}*200 + ${nb0Nb1Input}*${pSB1Input}*200}{${Nb1n}*${Psb1} + ${nb0Nb1Input}*${pSB1Input}} = ${q0hB1}`;
+                let formulaText = `q_0^{\\text{B1}} = \\frac{${Nb1n}*${Phb1}*200 + ${nb0Nb1Input}*${pHB1Input}*200}{${Nb1n}*${Phb1} + ${nb0Nb1Input}*${pHB1Input}} = ${q0hB1}`;
                 hiddenFormulaCont = 'hiddenFormulaQhB1Sum';
                 formulaCont='formulaQhB1Sum';
                 canvasCont='canvasQhB1Sum';
