@@ -488,7 +488,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 let element = document.getElementById('3.10-title-text');
                 if (element) element.textContent = text;
 
-                text = "Таблица А.2 «Расчётные расходы для " + typeOfBuilding + "»";
+                text = "Таблица А.3 «Расчётные расходы для " + typeOfBuilding + "»";
                 element = document.getElementById('a3-table-title-text');
                 if (element) element.textContent = text;
             }
