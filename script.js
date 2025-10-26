@@ -16,6 +16,7 @@ let uInput;
 let numDevicesT3;
 let qDmaxB0Input;
 let qDmaxT3Input;
+let hoursInput;
 
 let q0GenInput;
 let q0GenHrInput;
@@ -238,6 +239,11 @@ for (let elem = 0; elem < inputs.length; elem++){
             if (this.hasAttribute('data-q0-or-hr')) {
                 q0OrHrInput = this.value;
                 allValue('[data-q0-or-hr]', q0OrHrInput);
+            }
+
+            if (this.hasAttribute('data-h')) {
+                hoursInput = this.value;
+                allValue('[data-h]', hoursInput);
             }
 
             if (numFloors) {
@@ -656,11 +662,11 @@ for (let elem = 0; elem < inputs.length; elem++){
                 if (Qb1dTableElement) Qb1dTableElement.textContent = qdb1InputCal;
             }
 
-            if (qdb0InputCal) {
-                qmhb0Input = qdb0InputCal/24;
+            if (qdb0InputCal && hoursInput) {
+                qmhb0Input = qdb0InputCal/hoursInput;
                 qmhb0Input = Number(qmhb0Input.toFixed(4));
 
-                let formulaText = `q^{\\text{B0}}_{\\text{ср час}} = \\frac{${qdb0InputCal}}{24} = ${qmhb0Input}\\frac{\\text{м³}}{\\text{час}} `;
+                let formulaText = `q^{\\text{B0}}_{\\text{ср час}} = \\frac{${qdb0InputCal}}{${hoursInput}} = ${qmhb0Input}\\frac{\\text{м³}}{\\text{час}} `;
                 hiddenFormulaCont = 'hiddenFormulaQmhB0Input';
                 formulaCont='formulaQmhB0Input';
                 canvasCont='canvasQmhB0Input';
@@ -670,11 +676,11 @@ for (let elem = 0; elem < inputs.length; elem++){
                 if (Qb1dTableElement) Qb1dTableElement.textContent = qmhb0Input;
             }
 
-            if (qdT3InputCal) {
-                qmhT3Input = qdT3InputCal/24;
+            if (qdT3InputCal && hoursInput) {
+                qmhT3Input = qdT3InputCal/hoursInput;
                 qmhT3Input = Number(qmhT3Input.toFixed(4));
 
-                let formulaText = `q^{\\text{T3}}_{\\text{ср час}} = \\frac{${qdT3InputCal}}{24} = ${qmhT3Input}\\frac{\\text{м³}}{\\text{час}} `;
+                let formulaText = `q^{\\text{T3}}_{\\text{ср час}} = \\frac{${qdT3InputCal}}{${hoursInput}} = ${qmhT3Input}\\frac{\\text{м³}}{\\text{час}} `;
                 hiddenFormulaCont = 'hiddenFormulaQmhT3Input';
                 formulaCont='formulaQmhT3Input';
                 canvasCont='canvasQmhT3Input';
@@ -684,11 +690,11 @@ for (let elem = 0; elem < inputs.length; elem++){
                 if (Qb1dTableElement) Qb1dTableElement.textContent = qmhT3Input;
             }
 
-            if (qdb1InputCal) {
-                qmhb1Input = qdb1InputCal/24;
+            if (qdb1InputCal && hoursInput) {
+                qmhb1Input = qdb1InputCal/hoursInput;
                 qmhb1Input = Number(qmhb1Input.toFixed(4));
 
-                let formulaText = `q^{\\text{B1}}_{\\text{ср час}} = \\frac{${qdb1InputCal}}{24} = ${qmhb1Input}\\frac{\\text{м³}}{\\text{час}} `;
+                let formulaText = `q^{\\text{B1}}_{\\text{ср час}} = \\frac{${qdb1InputCal}}{${hoursInput}} = ${qmhb1Input}\\frac{\\text{м³}}{\\text{час}} `;
                 hiddenFormulaCont = 'hiddenFormulaQmhB1Input';
                 formulaCont='formulaQmhB1Input';
                 canvasCont='canvasQmhB1Input';
@@ -1495,6 +1501,10 @@ for (let elem = 0; elem < inputs.length; elem++){
 
             if (pSB1 && Nb1n && nb0Nb1Input) {
                 ANP9 = Number(((Number(Nb1n)+Number(nb0Nb1Input)) * pSB1).toFixed(3));
+
+                console.log((Number(Nb1n)+Number(nb0Nb1Input)));
+                console.log(pSB1);
+                console.log(ANP9);
                 let sumN = Number(Nb1n)+Number(nb0Nb1Input);
                 let a = findAlphaByNP(ANP9);
                 a = Number(a.toFixed(3));
