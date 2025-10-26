@@ -511,6 +511,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaSumQDB0';
                 canvasCont='canvasSumQDB0';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1mhTableElement = document.getElementById('Qb0dnS-table');
+                if (Qb1mhTableElement) Qb1mhTableElement.textContent = sumQDB0.toString();
             }
 
             if (qdT3InputCal && qT3n) {
@@ -521,6 +524,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaSumQDT3';
                 canvasCont='canvasSumQDT3';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1mhTableElement = document.getElementById('QT3dnS-table');
+                if (Qb1mhTableElement) Qb1mhTableElement.textContent = sumQDT3.toString();
             }
 
             if (qdb1InputCal && qb1n) {
@@ -531,6 +537,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaSumQDB1';
                 canvasCont='canvasSumQDB1';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1mhTableElement = document.getElementById('Qb1dnS-table');
+                if (Qb1mhTableElement) Qb1mhTableElement.textContent = sumQDB1.toString();
             }
 
             if (qB0mhn && qmhb0Input) {
@@ -541,6 +550,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaSumQMhB0';
                 canvasCont='canvasSumQMhB0';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1mhTableElement = document.getElementById('Qb0mhnS-table');
+                if (Qb1mhTableElement) Qb1mhTableElement.textContent = sumQMhB0.toString();
             }
 
             if (qT3mhn && qmhT3Input) {
@@ -551,6 +563,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaSumQMhT3';
                 canvasCont='canvasSumQMhT3';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1mhTableElement = document.getElementById('QT3mhnS-table');
+                if (Qb1mhTableElement) Qb1mhTableElement.textContent = sumQMhT3.toString();
             }
 
             if (qB1mhn && qmhb1Input) {
@@ -561,6 +576,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaSumQMhB1';
                 canvasCont='canvasSumQMhB1';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1mhTableElement = document.getElementById('Qb1mhnS-table');
+                if (Qb1mhTableElement) Qb1mhTableElement.textContent = sumQMhB1.toString();
             }
 
             if (nb0Nb1Input && numDevicesT3) {
@@ -621,7 +639,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
                 const Qb1dTableElement = document.getElementById('QT3dnI-table');
-                if (Qb1dTableElement) Qb1dTableElement.textContent = qdT3Input;
+                if (Qb1dTableElement) Qb1dTableElement.textContent = qdT3InputCal;
             }
 
             if (qdb1Input && uInput) {
@@ -1412,6 +1430,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQMaxSB0Sum';
                 canvasCont='canvasQMaxSB0Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1mhTableElement = document.getElementById('Qb0maxsnS-table');
+                if (Qb1mhTableElement) Qb1mhTableElement.textContent = qSB0.toString();
             }
 
             if (nT3Input && NT3n && PsT3 && pST3Input) {
@@ -1449,6 +1470,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQMaxST3Sum';
                 canvasCont='canvasQMaxST3Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1mhTableElement = document.getElementById('QT3maxsnS-table');
+                if (Qb1mhTableElement) Qb1mhTableElement.textContent = qST3.toString();
             }
 
             if (nb0Nb1Input && Nb1n && Psb1 && pSB1Input) {
@@ -1486,6 +1510,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQMaxSB1Sum';
                 canvasCont='canvasQMaxSB1Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1mhTableElement = document.getElementById('Qb1maxsnS-table');
+                if (Qb1mhTableElement) Qb1mhTableElement.textContent = qSB1.toString();
             }
 
             if (nb0Nb1Input && Nb0n && Phb0 && pHB0Input) {
@@ -1523,6 +1550,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQMaxHB0Sum';
                 canvasCont='canvasQMaxHB0Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1mhTableElement = document.getElementById('Qb0maxhnS-table');
+                if (Qb1mhTableElement) Qb1mhTableElement.textContent = qHB0.toString();
             }
 
             if (nT3Input && NT3n && PhT3 && pHT3Input) {
@@ -1560,6 +1590,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQMaxHT3Sum';
                 canvasCont='canvasQMaxHT3Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1mhTableElement = document.getElementById('QT3maxhnS-table');
+                if (Qb1mhTableElement) Qb1mhTableElement.textContent = qHT3.toString();
             }
 
             if (nb0Nb1Input && Nb1n && Phb1 && pHB1Input) {
@@ -1597,6 +1630,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaQMaxHB1Sum';
                 canvasCont='canvasQMaxHB1Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                const Qb1mhTableElement = document.getElementById('Qb1maxhnS-table');
+                if (Qb1mhTableElement) Qb1mhTableElement.textContent = qHB1.toString();
             }
         }
     });
@@ -1728,10 +1764,10 @@ formulaCont='formulaTableQd3';
 canvasCont='canvasTableQd3';
 calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
 
-// hiddenFormulaCont = 'hiddenFormulaTableQd4';
-// formulaCont='formulaTableQd4';
-// canvasCont='canvasTableQd4';
-// calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
+hiddenFormulaCont = 'hiddenFormulaTableQd4';
+formulaCont='formulaTableQd4';
+canvasCont='canvasTableQd4';
+calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
 
 formulaTableText = `q_{\\text{ср. час}} \\text{, } \\frac{\\text{м³}}{\\text{час}}`;
 hiddenFormulaCont = 'hiddenFormulaTableQmh';
@@ -1749,10 +1785,10 @@ formulaCont='formulaTableQmh3';
 canvasCont='canvasTableQmh3';
 calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
 
-// hiddenFormulaCont = 'hiddenFormulaTableQmh4';
-// formulaCont='formulaTableQmh4';
-// canvasCont='canvasTableQmh4';
-// calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
+hiddenFormulaCont = 'hiddenFormulaTableQmh4';
+formulaCont='formulaTableQmh4';
+canvasCont='canvasTableQmh4';
+calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
 
 formulaTableText = `q_{\\text{max час}} \\text{, } \\frac{\\text{м³}}{\\text{час}}`;
 hiddenFormulaCont = 'hiddenFormulaTableQmaxh';
@@ -1770,10 +1806,10 @@ formulaCont='formulaTableQmaxh3';
 canvasCont='canvasTableQmaxh3';
 calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
 
-// hiddenFormulaCont = 'hiddenFormulaTableQmaxh4';
-// formulaCont='formulaTableQmaxh4';
-// canvasCont='canvasTableQmaxh4';
-// calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
+hiddenFormulaCont = 'hiddenFormulaTableQmaxh4';
+formulaCont='formulaTableQmaxh4';
+canvasCont='canvasTableQmaxh4';
+calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
 
 formulaTableText = `q_{\\text{max сек.}} \\text{, } \\frac{\\text{л}}{\\text{сек}}`;
 hiddenFormulaCont = 'hiddenFormulaTableQmaxs';
@@ -1791,10 +1827,10 @@ formulaCont='formulaTableQmaxs3';
 canvasCont='canvasTableQmaxs3';
 calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
 
-// hiddenFormulaCont = 'hiddenFormulaTableQmaxs4';
-// formulaCont='formulaTableQmaxs4';
-// canvasCont='canvasTableQmaxs4';
-// calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
+hiddenFormulaCont = 'hiddenFormulaTableQmaxs4';
+formulaCont='formulaTableQmaxs4';
+canvasCont='canvasTableQmaxs4';
+calculate(formulaTableText, hiddenFormulaCont,formulaCont,canvasCont);
 
 function allValue(item, value) {
     let items = document.querySelectorAll(item);
