@@ -1494,7 +1494,7 @@ for (let elem = 0; elem < inputs.length; elem++){
             }
 
             if (pSB1 && Nb1n && nb0Nb1Input) {
-                ANP9 = Number(((Number(Nb1n)+(nb0Nb1Input)) * pSB1).toFixed(3));
+                ANP9 = Number(((Number(Nb1n)+Number(nb0Nb1Input)) * pSB1).toFixed(3));
                 let sumN = Number(Nb1n)+Number(nb0Nb1Input);
                 let a = findAlphaByNP(ANP9);
                 a = Number(a.toFixed(3));
