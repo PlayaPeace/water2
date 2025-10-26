@@ -1404,7 +1404,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasQsB0Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                pSB0 = (Nb0n*Psb0 + nb0Nb1Input*pSB0Input)/(Nb0n + nb0Nb1Input);
+                pSB0 = (Nb0n*Psb0 + nb0Nb1Input*pSB0Input)/(Number(Nb0n) + Number(nb0Nb1Input));
                 pSB0 = Number(pSB0.toFixed(4));
                 formulaText = `P_{\\text{сек}}^{\\text{B0}} = \\frac{${Nb0n}*${Psb0} + ${nb0Nb1Input}*${pSB0Input}}{${Nb0n} + ${nb0Nb1Input}} = ${pSB0}`;
                 hiddenFormulaCont = 'hiddenFormulaPsB0Sum';
@@ -1444,7 +1444,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasQsT3Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                pST3 = (NT3n*PsT3 + nT3Input*pST3Input)/(NT3n + nT3Input);
+                pST3 = (NT3n*PsT3 + nT3Input*pST3Input)/(Number(NT3n) + Number(nT3Input));
                 pST3 = Number(pST3.toFixed(4));
                 formulaText = `P_{\\text{сек}}^{\\text{T3}} = \\frac{${NT3n}*${PsT3} + ${nT3Input}*${pST3Input}}{${NT3n} + ${nT3Input}} = ${pST3}`;
                 hiddenFormulaCont = 'hiddenFormulaPsT3Sum';
@@ -1484,7 +1484,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasQsB1Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                pSB1 = (Nb1n*Psb1 + nb0Nb1Input*pSB1Input)/(Nb1n + nb0Nb1Input);
+                pSB1 = (Nb1n*Psb1 + nb0Nb1Input*pSB1Input)/(Number(Nb1n) + Number(nb0Nb1Input));
                 pSB1 = Number(pSB1.toFixed(4));
                 formulaText = `P_{\\text{сек}}^{\\text{B1}} = \\frac{${Nb1n}*${Psb1} + ${nb0Nb1Input}*${pSB1Input}}{${Nb1n} + ${nb0Nb1Input}} = ${pSB1}`;
                 hiddenFormulaCont = 'hiddenFormulaPsB1Sum';
@@ -1516,7 +1516,7 @@ for (let elem = 0; elem < inputs.length; elem++){
             }
 
             if (nb0Nb1Input && Nb0n && Phb0 && pHB0Input) {
-                let q0hB0 = (Nb0n*Phb0*300 + nb0Nb1Input*pHB0Input*300)/(Nb0n*Phb0 + nb0Nb1Input*pHB0Input);
+                let q0hB0 = (Number(Nb0n*Phb0*300) + Number(nb0Nb1Input*pHB0Input*300))/Number(Nb0n*Phb0 + nb0Nb1Input*pHB0Input);
                 q0hB0 = Number(q0hB0.toFixed(2));
                 let formulaText = `q_0^{\\text{B0}} = \\frac{${Nb0n}*${Phb0}*300 + ${nb0Nb1Input}*${pHB0Input}*300}{${Nb0n}*${Phb0} + ${nb0Nb1Input}*${pHB0Input}} = ${q0hB0}`;
                 hiddenFormulaCont = 'hiddenFormulaQhB0Sum';
@@ -1524,7 +1524,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasQhB0Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                pHB0 = (Nb0n*Phb0 + nb0Nb1Input*pHB0Input)/(Nb0n + nb0Nb1Input);
+                pHB0 = (Nb0n*Phb0 + nb0Nb1Input*pHB0Input)/(Number(Nb0n) + Number(nb0Nb1Input));
                 pHB0 = Number(pHB0.toFixed(4));
                 formulaText = `P_{\\text{ч}}^{\\text{B0}} = \\frac{${Nb0n}*${Phb0} + ${nb0Nb1Input}*${pHB0Input}}{${Nb0n} + ${nb0Nb1Input}} = ${pHB0}`;
                 hiddenFormulaCont = 'hiddenFormulaPhB0Sum';
@@ -1564,7 +1564,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasQhT3Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                pHT3 = (NT3n*PhT3 + nT3Input*pHT3Input)/(NT3n + nT3Input);
+                pHT3 = (NT3n*PhT3 + nT3Input*pHT3Input)/(Number(NT3n) + Number(nT3Input));
                 pHT3 = Number(pHT3.toFixed(4));
                 formulaText = `P_{\\text{ч}}^{\\text{T3}} = \\frac{${NT3n}*${PhT3} + ${nT3Input}*${pHT3Input}}{${NT3n} + ${nT3Input}} = ${pHT3}`;
                 hiddenFormulaCont = 'hiddenFormulaPhT3Sum';
@@ -1604,7 +1604,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 canvasCont='canvasQhB1Sum';
                 calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
 
-                pHB1 = (Nb1n*Phb1 + nb0Nb1Input*pHB1Input)/(Nb1n + nb0Nb1Input);
+                pHB1 = (Nb1n*Phb1 + nb0Nb1Input*pHB1Input)/(Number(Nb1n) + Number(nb0Nb1Input));
                 pHB1 = Number(pHB1.toFixed(4));
                 formulaText = `P_{\\text{ч}}^{\\text{B1}} = \\frac{${Nb1n}*${Phb1} + ${nb0Nb1Input}*${pHB1Input}}{${Nb1n} + ${nb0Nb1Input}} = ${pHB1}`;
                 hiddenFormulaCont = 'hiddenFormulaPhB1Sum';
